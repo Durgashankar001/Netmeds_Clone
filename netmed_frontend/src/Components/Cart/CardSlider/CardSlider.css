@@ -1,0 +1,43 @@
+.slideshow {
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100px;
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.slideshow img {
+    object-fit:  cover;
+}
+
+.slideshowSlider {
+    white-space: nowrap;
+    width: 100%;
+    transition: ease 1000ms;
+}
+
+.slide img {
+    border-radius: 15px;
+    min-height: 100px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slide {
+    position: relative;
+    margin-top: 0px;
+    display: inline-block;
+    width: 100%;
+    height: 550px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+@media all and (max-width : 600px)
+{
+    .slide{
+        height: 100px;
+    } 
+}
