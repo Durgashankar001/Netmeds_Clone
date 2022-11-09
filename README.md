@@ -17,19 +17,20 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 ### Team Members
 
-- **[Suhaib gour](https://github.com/15VIKRANT)**
+- **[Durgashankr Pal](https://github.com/Durgashankar001)**
 - **[Faizan khan](https://github.com/Faizankhan99)**
 - **[Prem prakash](https://github.com/Ritu1011)**
-- **[Saurabh Solanki](https://github.com/saurabhsolanki)**
+- **[Kartik saini](https://github.com/vishalvivare)**
 - **[Shaheen ahmad](https://github.com/Neelam2026)**
 
 
 ## Tech Stack Used : -
 
 - #### Languages
-  - `HTML`
-  - `CSS`
-  - `JavaScript ES6`
+  - `React JS`
+  - `Redux`
+  - `Chkra UI`
+  -  `Swiper JS`
 - #### Framework
   - `Node.Js`
 - #### Libraries
