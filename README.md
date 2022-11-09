@@ -19,8 +19,8 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 - **[Suhaib gour](https://github.com/15VIKRANT)**
 - **[Faizan khan](https://github.com/Faizankhan99)**
-- **[Ankit parte](https://github.com/AnkitParte)**
-- **[Kartik saini](https://github.com/vishalvivare)**
+- **[Prem prakash](https://github.com/Ritu1011)**
+- **[Saurabh Solanki](https://github.com/saurabhsolanki)**
 - **[Shaheen ahmad](https://github.com/Neelam2026)**
 
 
