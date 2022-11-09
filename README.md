@@ -17,7 +17,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 ### Team Members
 
-- **[Durgashankr Pal](https://github.com/Durgashankar001)**
+- **[Durgashankar Pal](https://github.com/Durgashankar001)**
 - **[Faizan khan](https://github.com/Faizankhan99)**
 - **[Ankit Parte](https://github.com/AnkitParte)**
 - **[Saurabh Solanki](https://github.com/saurabhsolanki)**
