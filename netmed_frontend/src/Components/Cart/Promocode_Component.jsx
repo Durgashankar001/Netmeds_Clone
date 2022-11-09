@@ -13,7 +13,7 @@ const Promocode_Component = ( {handlePromocodeINput,mypromo}) => {
                 </Box>
                 <Box mt='30px' pos='relative'>
                     {mypromo && <Box>
-                        <Text color='#24aeb1' fontSize={'12px'} fontWeight='600'>PROMOCODE</Text>
+                        <Text color='#24aeb1'  fontSize={'12px'} fontWeight='600'>PROMOCODE</Text>
                         <Box>
                             <Input size={'xs'} variant='flushed' placeholder='Have a promocode? Enter here' />
                             <Button pos='absolute' right='0' bottom='-5px' bg='none' _hover='none' color='#ef4281'>Apply</Button>

@@ -14,7 +14,7 @@ const SingleProduct_comopnent = ({ myCartData,date }) => {
                                 <Text fontSize={'12px'} color='#151B3999' as='i'>Mfr: {el.man}</Text>
                             </Box>
                         </Box>
-                        <Box ml={{ base: '20px', lg: '60px' }} mt='10px' display={'flex'} justifyContent='space-between' position={'relative'}>
+                        <Box ml={{ base: '20px', lg: '60px' }} mt='10px' display={'flex'} justifyContent='space-between' position={'relative' }>
                             <Box display={{ base: 'block', md: 'flex' }} alignItems={'flex-end'}>
                                 <Text fontWeight={'600'} color='#ef4281' mr='5px'>Rs. {parseFloat(el.price).toFixed(2)}</Text>
                                 {

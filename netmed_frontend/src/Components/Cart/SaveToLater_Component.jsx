@@ -6,7 +6,7 @@ const SaveToLater_Component = ({saveLaterData}) => {
         <Box bg="#fff" mt={"1rem"} p='0 15px 15px' borderRadius={'7px'}>
             <Text color='#151B3999' as='b' fontSize={'15px'} letterSpacing='1px' style={{ marginBottom: "8px" }}>SAVED FOR LATER</Text>
             {
-                saveLaterData !== 0 ?
+                saveLaterData  !== 0 ?
                     <Box>
                         {
                             saveLaterData.map(el => (

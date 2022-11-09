@@ -18,7 +18,7 @@ const EmptyCart_Component = ({saveLaterData}) => {
                             <Text mt='10px' as='b' fontWeight={'500'}>Your Cart is empty!</Text>
                         </Center>
                         <Center>
-                            <Text mt='10px' fontWeight={'400'} textAlign={'center'} color='#8a9095' fontSize={'14px'} w='62%'>You have no items added in the cart. Explore and add products you like!</Text>
+                            <Text mt='10px'  fontWeight={'400'} textAlign={'center'} color='#8a9095' fontSize={'14px'} w='62%'>You have no items added in the cart. Explore and add products you like!</Text>
                         </Center>
                         <Center>
                             <Button _hover='none' mt='20px' bg='#24aeb1' h='46px' fontSize={'15px'} color='#fff' borderRadius={'3px'} w='70%'>ADD PRODUCTS</Button>

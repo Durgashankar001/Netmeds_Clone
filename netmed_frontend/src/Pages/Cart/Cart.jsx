@@ -72,7 +72,7 @@ const Cart = () => {
                    <EmptyCart_Component saveLaterData={saveLaterData}/> :
                     <Box>
                         {
-                            loading && <Box zIndex={'2'} opacity='0.8' display={'grid'} position='fixed' bottom='0px' placeContent='center' w='100vw' h='110vh' bg='black'><Spinner color='#fff' size='xl' /></Box>
+                            loading  && <Box zIndex={'2'} opacity='0.8' display={'grid'} position='fixed' bottom='0px' placeContent='center' w='100vw' h='110vh' bg='black'><Spinner color='#fff' size='xl' /></Box>
                         }
                         <Box w={{ base: "95%", lg: "80%" }} m="auto">
                             <Heading as='h4' color='black' pt='20px' fontSize='25px' fontWeight={'600'} style={{ fontWeight: "bold", marginBottom: "15px", marginLeft: "15px" }}>Order Summary</Heading>

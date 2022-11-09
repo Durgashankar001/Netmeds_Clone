@@ -7,7 +7,7 @@ const Product_component = ({ myCartData }) => {
     const date = Date(Date.now())
     return (
         <Box>
-            <Box> <CardSlider_Component /></Box>
+            <Box>  <CardSlider_Component  /></Box>
             <Box bg='#fff' borderRadius={'7px'}>
                 <Box p='15px'>
                     <Text color='#151B3999' as='b' fontSize={'13px'} letterSpacing='1px'>PRODUCTS</Text>
