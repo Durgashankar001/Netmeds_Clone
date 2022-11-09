@@ -29,7 +29,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 - #### Languages
   - `React JS`
   - `Redux`
-  - `Chkra UI`
+  - `Chakra UI`
   -  `Swiper JS`
 - #### Framework
   - `Node.Js`
@@ -44,6 +44,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 ### _Following are the Screenshots for the reference_
 
 - **Landing Page**
+
   ![Landing Page](https://miro.medium.com/max/1112/1*aEveoAuhA3pmsC6S23XHfw.png)
 
 - **Product Page**
