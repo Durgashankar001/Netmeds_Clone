@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import Cart from './Pages/Cart/Cart'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      Hello I m Installed all Packages Please see the package.json File for the better understand
+     <Cart/>
     </div>
   )
 }
