@@ -1,0 +1,20 @@
+.homeMain{
+    background-color: #32AEB1;
+    padding: 20px 3rem 20px 3rem;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+.category{
+    display: flex;
+    padding: 10px 8rem 10px 8rem;
+    color: black;
+    font-size: 12px;
+    justify-content: space-between;
+    font-weight: 450;
+}
+.limited{
+    background-color: #32AEB1;
+}
