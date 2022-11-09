@@ -1,14 +1,17 @@
 import { useState } from "react";
 import Login from "./Components/Cred/Login";
 import Signup from "./Components/Cred/Signup";
+import Homepage from "./Components/Homepage/Homepage";
+import Navbar from "./Components/Navbar/Navbar";
+import Router from "./Routes/Router";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      Hello I m Installed all Packages Please see the package.json File for the
-      better understand
+      <Navbar />
+      <Router />
     </div>
   );
 }
