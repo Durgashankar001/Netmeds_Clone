@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Login from "./Components/Cart/Cred/Login";
-import Signup from "./Components/Cart/Cred/Signup";
+import Login from "./Components/Cred/Login";
+import Signup from "./Components/Cred/Signup";
 
 function App() {
   const [count, setCount] = useState(0);
