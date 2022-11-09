@@ -29,7 +29,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 - #### Languages
   - `React JS`
   - `Redux`
-  - `Chkra UI`
+  - `Chakra UI`
   -  `Swiper JS`
 - #### Framework
   - `Node.Js`
