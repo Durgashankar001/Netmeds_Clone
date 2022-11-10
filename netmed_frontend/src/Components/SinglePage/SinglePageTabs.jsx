@@ -3,14 +3,14 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const SinglePageTabs = () => {
   return (
-    <div>
-      <Tabs size="md" variant="enclosed">
+    <div >
+      <Tabs size="md" variant="enclosed" bg='white'>
         <TabList>
-          <Tab>Description</Tab>
-          <Tab>Key Benefits</Tab>
-          <Tab>Direction for Use/Dosage</Tab>
-          <Tab>Safety Information/Precaution</Tab>
-          <Tab>Other Information</Tab>
+          <Tab _selected={{ color: '#4ebbcd', bg: 'white' }}>Description</Tab>
+          <Tab _selected={{ color: '#4ebbcd', bg: 'white' }}>Key Benefits</Tab>
+          <Tab _selected={{ color: '#4ebbcd', bg: 'white' }}>Direction for Use/Dosage</Tab>
+          <Tab _selected={{ color: '#4ebbcd', bg: 'white' }}>Safety Information/Precaution</Tab>
+          <Tab _selected={{ color: '#4ebbcd', bg: 'white' }}>Other Information</Tab>
         </TabList>
         <TabPanels>
           {/* tab 1 */}

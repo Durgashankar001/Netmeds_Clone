@@ -1,0 +1,66 @@
+#ProductPage{
+    display: flex;
+    width: 80%;
+    gap: 50px;
+    margin: auto;
+}
+
+#productName{
+    padding: 20px 0px;
+}
+
+#productImage img{
+    height: 100%;
+}
+
+#productDesc{
+    width: 40%;
+}
+
+#productPrice{
+    padding: 20px 0px;
+}
+#productBestPrice{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#productMrp{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#productDeliver{
+    padding: 20px 0px;
+}
+
+#pincode{
+    display: flex;
+    gap: 20px;
+    border-bottom: 3px solid teal;
+    padding: 10px 0px;
+    align-items: center;
+}
+#pincode input{
+    border: none;
+}
+
+#productOffer{
+    padding: 20px 0px;
+}
+#productDiscount{
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#productTab{
+    width: 100%;
+    background-color: #f3f3f3;
+    margin: auto;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50x;
+}
