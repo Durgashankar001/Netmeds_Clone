@@ -1,13 +1,20 @@
 
   import {
     Stack,
-    Progress
+    Progress, Text,
+    Image,
+    SimpleGrid,
+    Box,
   } from '@chakra-ui/react'
 
   
   const Review = () => {
+   
     return (
-      <div  style={{height:"300px", width:"60%",boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px", marginLeft:"2%"}}>
+      <div>
+
+      
+      <div  style={{ width:"60%",boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px", marginLeft:"2%", padding:"10px 30px 30px 20px"}}>
        <div  style={{height:"30%", width:"100%"}}>
         <h4 style={{marginTop:"15px",color:"gray", fontWeight:"600", textAlign:"start",  marginLeft:"1%", paddingTop:"1.5%"}}>RATINGS & REVIEWS</h4>
         <h1 style={{ fontSize:"40px", color:"#BFBFBD",textAlign:"start", marginLeft:"1.5%"}}>0★<target style={{fontSize:"13px", color:"grey"}}>70 Ratings & 0 Reviews</target></h1>
@@ -62,6 +69,9 @@
     
       </div>
      </div>
+    </div>
+
+   
     </div>
     );
   };
