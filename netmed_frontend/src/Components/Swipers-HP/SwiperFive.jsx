@@ -11,13 +11,13 @@ import "swiper/css/navigation";
 //import { topBrands } from "./SwiperArr";
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import CardThree from "./CardThree";
+import CardFive from "./CardFive";
 
-export default function SwiperFour({arr}) {
+export default function SwiperFive({arr}) {
   return (
     <>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={4}
         spaceBetween={10}
         slidesPerGroup={1}
         loop={true}
@@ -32,7 +32,7 @@ export default function SwiperFour({arr}) {
         {arr && arr.map((el, i) => {
           return (<SwiperSlide key={i}>
             <br />
-            <CardThree key={i} {...el} />
+            <CardFive key={i} {...el}/>
             <br />
           </SwiperSlide>)
         })}

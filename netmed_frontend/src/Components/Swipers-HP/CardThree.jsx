@@ -10,6 +10,7 @@ export default function CardThree({img,title,off}){
             <Box>{title}</Box>
             <br />
             <Box color={"green"} fontSize={12} fontWeight={600}>{off?off:null}</Box>
+            <br />
         </Box>
     </>)
 }

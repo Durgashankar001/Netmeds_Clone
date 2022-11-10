@@ -19,14 +19,17 @@ export default function Navbar() {
             <Box>Delivered to</Box>
             <Select
               className={styles.selectme}
-              placeholder="Select option"
               variant={"unstyled"}
               size="xs"
               w="110px"
             >
-              <option defaultValue={"110002"}>110002</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option defaultValue={"110001"}>110001</option>
+              <option value="110002">110002</option>
+              <option value="110003">110003</option>
+              <option value="110004">110004</option>
+              <option value="110005">110005</option>
+              <option value="110006">110006</option>
+              <option value="110007">110007</option>
             </Select>
             <Box>|</Box>
             <Input

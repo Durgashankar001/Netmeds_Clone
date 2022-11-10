@@ -1,0 +1,53 @@
+.aboutUs{
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+.headOne{
+    font-weight: 500;
+    font-size: 12px;
+}
+.descrip{
+    font-size: 12px;
+    color: gray;
+}
+.titleOne{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.footerBottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3rem 2rem 3rem;
+    font-size: 14px;
+    color: gray;
+    font-weight: 550;
+}
+.Stack{
+    display: flex;
+    text-align: left;
+    padding: 2rem 3rem 2rem 3rem;
+}
+.Stack>div{
+    width: 25%;
+    font-size: 13px;
+}
+.StackOne>div{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-weight: 450;
+}
+.StackOne>div:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.StackOne>div:nth-child(1){
+    font-size: 14px;
+    font-weight: 650;
+}
+.StackOne>div:nth-child(1):hover{
+    text-decoration: none;
+    cursor: inherit;
+}
+
