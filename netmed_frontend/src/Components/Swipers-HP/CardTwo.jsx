@@ -6,7 +6,7 @@ export default function CardTwo({img,title,off}){
             <Image src={img} alt={title}/>
             <Box>{title}</Box>
             <br />
-            <Box color={"green"} fontWeight={600}>{off?off:null}</Box>
+            <Box color={"green"} fontSize={12} fontWeight={600}>{off?off:null}</Box>
         </Box>
     </>)
 }

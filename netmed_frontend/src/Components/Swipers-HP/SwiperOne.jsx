@@ -25,7 +25,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function SwiperOne() {
   return (
-    <>
+    <Box w="95%" m="auto">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -42,12 +42,12 @@ export default function SwiperOne() {
       >
         {arr && arr.map((el, i) => {
           return (<SwiperSlide key={i}>
-            <Box p={"10px 20px 0px 20px"} h="150%" _hover={{cursor:"pointer"}}>
+            <Box _hover={{cursor:"pointer"}}>
               <Image src={el} alt={i}/>
             </Box>
           </SwiperSlide>)
         })}
       </Swiper>
-    </>
+    </Box>
   );
 }

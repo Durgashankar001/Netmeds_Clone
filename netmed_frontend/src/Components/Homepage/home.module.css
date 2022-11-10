@@ -15,6 +15,9 @@
     justify-content: space-between;
     font-weight: 450;
 }
+.category:hover{
+    cursor: pointer;
+}
 .limited{
     background-color: #32AEB1;
 }

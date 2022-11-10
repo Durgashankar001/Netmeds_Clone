@@ -2,6 +2,9 @@
     background-color: #32AEB1;
     display: flex;
     padding: 20px 2rem 20px 2rem;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
 }
 .main>div:nth-child(1){
     width: 15%;
