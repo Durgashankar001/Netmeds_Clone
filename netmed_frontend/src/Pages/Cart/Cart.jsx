@@ -4,8 +4,8 @@ import Product_component from '../../Components/Cart/Product_component';
 import SaveToLater_Component from '../../Components/Cart/SaveToLater_Component';
 import EmptyCart_Component from '../../Components/Cart/EmptyCart_Component';
 import "./Cart.css"
-import CardSlider_Component from '../../Components/Cart/CardSlider/CardSlider_Component';
 import Promocode_Component from '../../Components/Cart/Promocode_Component';
+import Swiper_Component from '../../Components/Cart/Swiper_Component';
 
 
 
@@ -16,37 +16,9 @@ let saveLaterData = [
         man: "Galderma India Pvt Ltd",
         price: "562.10",
         dis_price: "770.00"
-    },
-    {
-        img: "https://www.netmeds.com/images/product-v1/75x75/410529/cetaphil_baby_daily_lotion_400ml_52341_0_3.jpg",
-        title: "Cetaphil Baby Daily Lotion 400ml",
-        man: "Galderma India Pvt Ltd",
-        price: "562.10",
-        dis_price: "770.00"
-    },
-    {
-        img: "https://www.netmeds.com/images/product-v1/75x75/410529/cetaphil_baby_daily_lotion_400ml_52341_0_3.jpg",
-        title: "Cetaphil Baby Daily Lotion 400ml",
-        man: "Galderma India Pvt Ltd",
-        price: "562.10",
-        dis_price: "770.00"
     }
 ]
 let myCartData = [
-    {
-        img: "https://www.netmeds.com/images/product-v1/75x75/410529/cetaphil_baby_daily_lotion_400ml_52341_0_3.jpg",
-        title: "Cetaphil Baby Daily Lotion 400ml",
-        man: "Galderma India Pvt Ltd",
-        price: "562.10",
-        dis_price: "770.00"
-    },
-    {
-        img: "https://www.netmeds.com/images/product-v1/75x75/410529/cetaphil_baby_daily_lotion_400ml_52341_0_3.jpg",
-        title: "Cetaphil Baby Daily Lotion 400ml",
-        man: "Galderma India Pvt Ltd",
-        price: "562.10",
-        dis_price: "770.00"
-    },
     {
         img: "https://www.netmeds.com/images/product-v1/75x75/410529/cetaphil_baby_daily_lotion_400ml_52341_0_3.jpg",
         title: "Cetaphil Baby Daily Lotion 400ml",
@@ -82,6 +54,10 @@ const Cart = () => {
 
                             <Box w='100%'>
                                 <Product_component myCartData={myCartData} />
+                                <Box className='swiper_display' w={"100%"} p={"10px"} mt={"1rem"}>
+                                    <Swiper_Component/>
+                                    </Box>
+                                
                                 <SaveToLater_Component saveLaterData={saveLaterData} />
                             </Box>
                            <Promocode_Component handlePromocodeINput={handlePromocodeINput} mypromo={mypromo}/>
