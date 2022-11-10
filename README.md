@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # netmeds-clone
 
 Netmeds is one of India's leading healthcare aggregators and most trusted medicine delivery website. Features:  Sign up/Login Page  Home Page  Cart  Booking
@@ -70,3 +72,4 @@ _To start with the Project run the following command in terminal in "backend" fo
 > We did this project within 4 days in our unit-4 construct week. We worked on backend parts with includes various types of libraries into it and we have also added database for our project so user and product details will be saved and can be used accordingly. We have also add some cool functionality in our home page, product page and cart page where you can filter the products according to your choice and user can Signup and Login to buy the products.
 
 ---
+>>>>>>> 3b770cd2795bdcad7961dd9d62ade0300540aab1
