@@ -31,9 +31,9 @@ export default function SwiperFour({arr}) {
       >
         {arr && arr.map((el, i) => {
           return (<SwiperSlide key={i}>
-            <br />
+            
             <CardThree key={i} {...el} />
-            <br />
+            
           </SwiperSlide>)
         })}
         <br />

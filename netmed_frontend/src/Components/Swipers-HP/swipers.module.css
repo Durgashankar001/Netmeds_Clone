@@ -79,6 +79,7 @@
     font-weight: 600;
     border-radius: 6px;
     background-color: white;
+    width: 100%;
 }
 .CardThree:hover{
     cursor: pointer;
