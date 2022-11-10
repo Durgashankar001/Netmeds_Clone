@@ -3,7 +3,7 @@ import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
 
 const SaveToLater_Component = ({saveLaterData}) => {
     return (
-        <Box bg="#fff" mt={"1rem"} p='0 15px 15px' borderRadius={'7px'}>
+        <Box bg="#fff" mt={"2rem"} p='0 15px 15px' borderRadius={'7px'}>
             <Text color='#151B3999' as='b' fontSize={'15px'} letterSpacing='1px' style={{ marginBottom: "8px" }}>SAVED FOR LATER</Text>
             {
                 saveLaterData  !== 0 ?
