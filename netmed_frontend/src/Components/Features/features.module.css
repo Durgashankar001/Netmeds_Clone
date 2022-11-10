@@ -1,3 +1,45 @@
 .membership{
     display: flex;
+    padding: 10px 1rem 10px 1rem;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+}
+.membership>div:nth-child(2){
+    width: 60%;
+}
+.membership>div:nth-child(2){
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.membership>div:nth-child(3){
+    width: 30%;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.consult{
+    display: flex;
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+}
+.consult>div:nth-child(1)>img{
+    width: 70%;
+    margin: auto;
+}
+.consult>div:nth-child(2){
+    width: 60%;
+    font-size: 18px;
+    font-weight: 600;
+}
+.consult>div:nth-child(3){
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
 }

@@ -24,13 +24,13 @@ let five = {
     title:"Homeopathy"
 }
 
-let arr = [one,two,three,four,five];
-export default function StaticTwo(){
+export let shopByCate = [one,two,three,four,five];
+export default function StaticTwo({arr}){
     return (<>
         <Box className={styles.StaticTwo}>
             {arr?.map((el,i)=>{
                 return (<>
-                    <CardTwo key={i} img={el.img} title={el.title}/>
+                    <CardTwo key={i} {...el}/>
                 </>)
             })}
         </Box>
