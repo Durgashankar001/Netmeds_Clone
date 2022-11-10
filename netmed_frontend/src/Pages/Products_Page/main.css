@@ -1,0 +1,116 @@
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+.bo{
+    background-color: #c5c1c1;
+}
+body {
+  /* background: #f3f3f3; */
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bsw1{
+    width: 98%;
+  
+    margin: auto;
+}
+.img1{
+    width: 100%;
+    height: 100%;
+}
+.gh1{
+    font-family: LatoBold;
+    font-size: 24px; 
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    font-weight: 600;
+}
+.bsw2{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+.bsw3{
+    width: 19%;
+   border-radius: 10px;
+background-color: white;
+/* border: 1px solid black; */
+
+}
+.img12{
+    width: 250px;
+    border-radius: 10px;
+}
+.img121{
+    text-align: center;
+    width: 150px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.h1{
+    font-family: LatoBold;
+    font-size: 18px; 
+text-align: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.pr{
+  width: 95%;
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  
+}
+.uh4{
+  font-family: LatoBold;
+  font-size: 15px;
+  color: #6f7284;
+}

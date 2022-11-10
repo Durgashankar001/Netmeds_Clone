@@ -3,3 +3,12 @@
     padding: 0;
     box-sizing:  border-box;
 }
+.swiper-slide img{
+    max-width: 70%;
+    max-height: 70%;
+}
+@media only screen and (max-width: 600px) {
+    .swiper_display {
+      display: none;
+    }
+  }
