@@ -1,6 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import SwipImage from "./swipImage"
+import Productsswiper from "./productswiper"
+import UptoProducts from './UptoProducts'
 
 function well() {
   return (
@@ -17,7 +19,10 @@ function well() {
     </Box>
 
 
+<Box className='pr'><h4 className='uh4'>UNDER-399</h4><Productsswiper/></Box>
 
+
+<Box className='pr'><h4 className='uh4'>UPTO 65% OFF</h4><UptoProducts/></Box>
 
 
 
