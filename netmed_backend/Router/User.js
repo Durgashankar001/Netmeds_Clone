@@ -9,7 +9,7 @@ app.get("/", async (req, res) => {
 })
 
 
-app.post("/", async (req, res) => {
+app.post("/signup", async (req, res) => {
     const { name, email, phone, password } = req.body
     
     try {
@@ -28,7 +28,7 @@ app.post("/", async (req, res) => {
 
 })
 
-app.post("/", async (req, res) => {
+app.post("/login", async (req, res) => {
     const { email, password } = req.body
     
     try {
