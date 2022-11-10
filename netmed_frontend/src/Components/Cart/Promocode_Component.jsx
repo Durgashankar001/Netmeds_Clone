@@ -1,10 +1,24 @@
 import React from 'react'
 import { Box, Button, Center, Checkbox, Flex, Heading, Image, Input, Select, Spinner, Text } from '@chakra-ui/react';
+import {FaCrown} from 'react-icons/fa'
+import {BsArrowRight} from 'react-icons/bs'
+import PaymentDetails_Component from './PaymentDetails_Component';
 
 const Promocode_Component = ( {handlePromocodeINput,mypromo}) => {
     return (
         <Box w={{ base: '100%', lg: '45%' }}>
-            <Box w="100%" border={"1px solid black"} h="100px" mb={"1rem"} borderRadius={"15px"} style={{backgroundImage:"linear-gradient(to right,#f85caa 0,#f03479 99%)"}}></Box>
+            <Box display={"flex"} w="100%" h="100px" mb={"1rem"} borderRadius={"15px"} style={{backgroundImage:"linear-gradient(to right,#f85caa 0,#f03479 99%)"}}>
+            <Box w={"20%"} h={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} >
+                <Box w={"40px"} h={"40px"} bg={"white"} borderRadius={"50%"} position={"relative"}><FaCrown style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}  size={22} color={"#3ecacd"}/> </Box>
+            </Box>
+            <Box  h={"100%"} w={"70%"} pr={"3px"}>
+                <Text mt={"20px"} fontWeight={"500"} color={"white"} fontSize={"13px"} mb={"5px"}>Become Netmeds First Member</Text>
+                <Text fontSize={"12px"}>Join membership to save much more!</Text>
+            </Box>
+            <Box w={"10%"} h={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} >
+                <Box w={"20px"} h={"20px"} bg={"white"} borderRadius={"50%"} position={"relative"}><BsArrowRight style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}  size={16} color={"#f85caa"}/></Box>
+            </Box>
+            </Box>
             <Box p='10px' pb='20px' borderRadius={'5px'} bg='#fff' mb='15px'>
                 <Box>
                     <Text fontSize={'12px'} color='#151B3999' fontWeight='600' letterSpacing='1px' mb='10px'>APPLY PROMOCODE / NMS SUPERCASH</Text>
@@ -21,41 +35,7 @@ const Promocode_Component = ( {handlePromocodeINput,mypromo}) => {
                     </Box>}
                 </Box>
             </Box>
-            <Box p='10px' pb='20px' borderRadius={'5px'} bg='#fff' mb='15px'>
-                <Box p='5px'>
-                    <Text fontSize={'12px'} color='#151B3999' fontWeight='600' letterSpacing='1px' mb='15px'>PAYMENT DETAILS</Text>
-                    <Flex fontSize={'14px'} mb='10px' justifyContent={'space-between'}>
-                        <Text>MRP Total</Text>
-                        <Text>Rs.{500}</Text>
-                    </Flex>
-                    <Flex fontSize={'14px'} mb='10px' justifyContent={'space-between'}>
-                        <Text>Netmeds Discount</Text>
-                        <Text>-Rs.{500}</Text>
-                    </Flex>
-        
-                        <Flex fontSize={'14px'} mb='10px' justifyContent={'space-between'}>
-                            <Text>Promocode Discount</Text>
-                            <Text>-Rs.{22.25}</Text>
-                        </Flex>
-   
-                    <Flex fontSize={'14px'} mb='20px' justifyContent={'space-between'}>
-                        <Text as='b'>Total Amount *</Text>
-                        <Text as='b'>Rs.{52.25}</Text>
-                    </Flex>
-                </Box>
-                <Box bg='#f3f8ec' p='10px 15px' mb='30px'>
-                    <Text fontSize={'12px'} fontWeight='600' color='#489841' letterSpacing='1px'>TOTAL SAVINGS RS.{520}</Text>
-                </Box>
-                <Flex justifyContent={'space-between'} p='5px'>
-                    <Box>
-                        <Text fontSize={'11px'} letterSpacing='1px' fontWeight={'600'} color='#151B3999'>TOTAL AMOUNT</Text>
-                        <Text fontSize={'20px'} as='b'>Rs.{500}</Text>
-                    </Box>
-                    <Box>
-                        <Button bg='#24aeb1' borderRadius={'2px'} color='#fff' letterSpacing={'1px'} _hover='none' p='0 30px'>PROCEED</Button>
-                    </Box>
-                </Flex>
-            </Box>
+            <PaymentDetails_Component/>
             <Box mt='-20px' p='15px'>
                 <Text as='i' fontSize={'10px'} lineHeight='-10px'>Netmeds is a technology platform to facilitate transaction of business. The products and services are offered for sale by the sellers. The user authorizes the delivery personnel to be his agent for delivery of the goods. For details read <span style={{ color: '#0033ff' }}>Terms & Conditions</span></Text>
             </Box>
