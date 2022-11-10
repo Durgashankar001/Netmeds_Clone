@@ -23,6 +23,7 @@ function productswiper() {
         pagination={{
           clickable: true,
         }}
+        
         modules={[Pagination]}
         className="mySwiper"
       >

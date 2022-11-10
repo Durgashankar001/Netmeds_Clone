@@ -20,6 +20,7 @@ export default function swipImage() {
         pagination={{
           type: "fraction",
         }}
+        
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
