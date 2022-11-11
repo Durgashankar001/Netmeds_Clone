@@ -4,7 +4,7 @@ import {FaCrown} from 'react-icons/fa'
 import {BsArrowRight} from 'react-icons/bs'
 import PaymentDetails_Component from './PaymentDetails_Component';
 
-const Promocode_Component = ( {handlePromocodeINput,mypromo}) => {
+const Promocode_Component = ( {handlePromocodeINput,mypromo,buttontext,navigation}) => {
     return (
         <Box w={{ base: '100%', lg: '45%' }}>
             <Box display={"flex"} w="100%" h="100px" mb={"1rem"} borderRadius={"15px"} style={{backgroundImage:"linear-gradient(to right,#f85caa 0,#f03479 99%)"}}>
@@ -35,7 +35,7 @@ const Promocode_Component = ( {handlePromocodeINput,mypromo}) => {
                     </Box>}
                 </Box>
             </Box>
-            <PaymentDetails_Component/>
+            <PaymentDetails_Component buttontext={buttontext} navigation={navigation}/>
             <Box mt='-20px' p='15px'>
                 <Text as='i' fontSize={'10px'} lineHeight='-10px'>Netmeds is a technology platform to facilitate transaction of business. The products and services are offered for sale by the sellers. The user authorizes the delivery personnel to be his agent for delivery of the goods. For details read <span style={{ color: '#0033ff' }}>Terms & Conditions</span></Text>
             </Box>

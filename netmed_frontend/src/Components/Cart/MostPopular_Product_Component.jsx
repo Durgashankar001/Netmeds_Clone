@@ -1,0 +1,92 @@
+export const myPupularProduct = [
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/14021/vicks_vaporub_50_ml_0.jpg",
+        name: "Vicks Vaporub 50 ml",
+        price: 144.15,
+        cross_price: 155.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/15978/amrutanjan_relief_cough_cold_nasal_inhaler_0_0.jpg",
+        name: "Amrutanjan Relief Cough...",
+        price: 44.10,
+        cross_price: 45.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/903678/pankajakasthuri_cough_syrup_honey_100_ml_0_1.jpg",
+        name: "Pankajakasthuri Cough Sy..",
+        price: 63.00,
+        cross_price: 70.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/857459/accusure_hot_water_bag_0.jpg",
+        name: "AccuSure Hot Water Bag",
+        price: 198.00,
+        cross_price: 360.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/108449/pulmocare_powder_200_gm_0.jpg",
+        name: "Pulmocare Powder 200.",
+        price: 279.00,
+        cross_price: 310.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/947290/wonder_vaporizer_steam_inhaler_0_0.jpg",
+        name: "Wonder Vaporizer",
+        price: 244.90,
+        cross_price: 395.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/13617/nivea_soft_light_moisturiser_200_ml_0_1.jpg",
+        name: "Nivea Soft Light Moisturiser",
+        price: 254.20,
+        cross_price: 310.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/977197/netmeds_3_ply_face_mask_with_nose_pin_50s_0_1.jpg",
+        name: "Netmeds 3 Ply Face Mask",
+        price: 115.00,
+        cross_price: 500.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/859539/bodyguard_reusable_anti_pollution_face_mask_with_activated_carbon_large_0.jpg",
+        name: "BodyGuard Resuable Anti...",
+        price: 244.30,
+        cross_price: 349.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/317568/i_pill_tablet_0_1.jpg",
+        name: "I PILL TABLET",
+        price: 99.00,
+        cross_price: 110.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/341494/liv_52_tablet_100_s_0.jpg",
+        name: "HimalayanLiv.52 Tablet",
+        price: 101.40,
+        cross_price: 130.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/367464/bd_ultra_fine_nano_pen_5_s_0.jpg",
+        name: "BD Ultra Fine Nano Pen 5's",
+        price: 81.84,
+        cross_price: 88.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/408959/climax_spray_for_men_12_gm_0_1.jpg",
+        name: "Climax Spray for Men 12 gm",
+        price: 169.15,
+        cross_price: 199.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/412270/manforce_stay_long_gel_8_gm_0_1.jpg",
+        name: "Manforce Stay Long Gel 8 gm",
+        price: 99.00,
+        cross_price: 110.00,
+    },
+    {
+        img: "https://www.netmeds.com/images/product-v1/150x150/388213/volini_spray_40gm_46241_0_2.jpg",
+        name: "Volini Spray 40gm",
+        price: 126.65,
+        cross_price: 149.00,
+    },
+]
