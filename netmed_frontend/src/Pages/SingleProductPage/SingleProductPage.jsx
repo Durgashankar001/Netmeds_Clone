@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import SinglePageTabs from "../../Components/SinglePage/SinglePageTabs";
+import RelatedPost from "./RelatedPost";
 import Review from "./Review";
 import "./SingleProdctPage.css";
 
@@ -131,8 +132,17 @@ export default function SingleProductPage() {
         <SinglePageTabs />
       </div>
 
-      <div id="productDisclaimer">
-        <Box bg="white" w="100%" p={4} color="black">
+<br />
+
+      <Review/>
+
+      <br />
+
+      <RelatedPost/>
+
+      {/* disclaimer */}
+      <div id="productDisclaimer" style={{boxShadow:"rgba(0, 0, 0, 0.16) 0px 1px 4px;", width:"90%"}}>
+        <Box bg="white" w="100%" p={4} color="black" >
           <Text color="#6f7284" as='b'>DISCLAIMER</Text>
           <Text fontSize="xs" >
             The contents of this website are for informational purposes only and
@@ -145,8 +155,6 @@ export default function SingleProductPage() {
           </Text>
         </Box>
       </div>
-
-      <Review/>
     </div>
   );
 }
