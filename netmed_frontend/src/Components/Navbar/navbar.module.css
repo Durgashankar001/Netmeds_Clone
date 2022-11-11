@@ -1,7 +1,7 @@
 .main{
     background-color: #32AEB1;
     display: flex;
-    padding: 20px 2rem 20px 2rem;
+    padding: 15px 2rem 15px 2rem;
     position: fixed;
     z-index: 3;
     width: 100%;
@@ -15,14 +15,16 @@
 .main>div:nth-child(3){
     width: 25%;
 }
-.imgBox{
-    border: 1px solid black;
-}
 .imgBox>img:hover{
     cursor: pointer;
 }
+.imgBox>img{
+    width: 100px;
+    height: 65px;
+}
 .inpGroup{
     border:0;
+    margin-top: 10px;
 }
 .inpGroup>div{
     width: 80%;
@@ -106,3 +108,52 @@ border: 1px solid red;
   .AccountGrid:hover {
     display: block;
   }
+@media only screen and (max-width: 1100px) {
+    .inpGroup>div{
+        width: 90%;
+        display: flex;
+        background-color: white;
+        border-radius: 4px;
+        padding: 14px;
+        font-size: 12px;
+        align-items: center;
+    }
+    
+    .itemCount{
+        color: white;
+        background-color: red;
+        padding: 0 3px 0 3px;
+        font-size: 10px;
+        border-radius: 6px;
+        margin-left: -45px;
+        margin-top: -15px;
+    
+    }
+    .cartBox{
+    
+        display: flex;
+        padding: 0;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+}
+@media only screen and (max-width: 800px){
+    .cartSpan{
+        display: none;
+    }
+    .itemCount{
+        color: white;
+        background-color: red;
+        padding: 0 3px 0 3px;
+        font-size: 10px;
+        border-radius: 6px;
+        margin-left: -15px;
+        margin-top: -15px;
+    
+    }
+    .cartBox{
+        padding: 0;
+        justify-content: space-around;
+    }
+}

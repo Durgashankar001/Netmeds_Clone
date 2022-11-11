@@ -17,12 +17,12 @@ let arr = new Array(10).fill(0).map((el) => (el = obj));
 import { Pagination, Navigation } from "swiper";
 import Card from "./Card";
 
-export default function SwiperThree() {
+export default function SwiperThree({arr}) {
   return (
     <>
       <Swiper
         slidesPerView={5}
-        spaceBetween={10}
+        spaceBetween={15}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}

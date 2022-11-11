@@ -15,8 +15,9 @@
     justify-content: space-between;
     font-weight: 450;
 }
-.category:hover{
+.category>div:hover{
     cursor: pointer;
+    text-decoration: underline;
 }
 .limited{
     background-color: #32AEB1;

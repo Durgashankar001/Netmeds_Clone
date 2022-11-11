@@ -9,6 +9,9 @@
 .mySwiper{
   margin-top: 15px;
 }
+.swiper-slide{
+    border-radius: 6px;
+}
 @media only screen and (max-width: 600px) {
     .swiper_display {
       display: none;
