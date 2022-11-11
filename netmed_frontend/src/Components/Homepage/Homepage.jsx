@@ -68,7 +68,7 @@ export default function Homepage() {
             <SwiperThree />
         </Box>
         <br />
-        <Box className={styles.limited} mb={-110}>
+        <Box className={styles.limited} mb={-100}>
             <br />
             <TopHeader color="white" text="Axios Ayurveda Upto 30% off" />
             <br />
@@ -81,7 +81,7 @@ export default function Homepage() {
             <SwiperThree />
         </Box>
         <br />
-        <Box className={styles.limited} mb={-110}>
+        <Box className={styles.limited} mb={-100}>
             <br />
             <TopHeader color="white" text="Brand Days - Cetaphil Upto 30% off" />
             <br />
@@ -98,13 +98,14 @@ export default function Homepage() {
         <br />
         <StaticTwo arr={shopByCate}/>
         <br />
-        <TopHeader color="black" text="New on Netmeds" />
+        <TopHeader color="black" text="New on Metneds" />
         <br />
         <Box pl="2rem" pr="2rem">
             <SwiperTwo />
         </Box>
         <br />
         <TopHeader color={"black"} text="Top Brands" />
+        <br />
         <Box pl="2rem" pr="2rem">
             <SwiperFour arr={topBrands}/>
         </Box>
@@ -130,7 +131,7 @@ export default function Homepage() {
         <br />
         <Consult/>
         <br />
-        <Box className={styles.limited} mb={-120} background="#899095">
+        <Box className={styles.limited} mb={-100} background="#899095">
             <br />
             <TopHeader color="white" text="Best in Beauty" />
             <br />
@@ -157,7 +158,7 @@ export default function Homepage() {
         <br />
         <StaticFour arr={healthCon}/>
         <br />
-        <Box className={styles.limited} mb={-140} background="#EF4281">
+        <Box className={styles.limited} mb={-100} background="#EF4281">
             <br />
             <TopHeader color="white" text="Health Library" />
             <br />

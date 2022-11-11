@@ -22,7 +22,7 @@ export default function SwiperThree() {
     <>
       <Swiper
         slidesPerView={5}
-        spaceBetween={10}
+        spaceBetween={23}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
@@ -37,7 +37,9 @@ export default function SwiperThree() {
           arr.map((el, i) => {
             return (
               <SwiperSlide key={i}>
+
                 <Card key={i} {...el} />
+
               </SwiperSlide>
             );
           })}

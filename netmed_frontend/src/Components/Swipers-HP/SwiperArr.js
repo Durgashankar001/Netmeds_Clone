@@ -178,7 +178,7 @@ export let healthCon = [
 export let healthLib = [
     {
         img:"https://www.netmeds.com/images/cms/magefan_blog/nmslite/1667984179_Indian-Diet-Chart_480x180.jpg",
-        title:"How to lose weight, This is what you should Eat...",
+        title:"How to lose weight, This is what you should Eat when...",
         id:1
     },
     {

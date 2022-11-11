@@ -40,9 +40,9 @@ export default function SwiperTwo() {
         {arr && arr.map((el,i)=>{
             return (<>
                 <SwiperSlide>
-                    <Box>
+                    {/* <Box> */}
                         <Image borderRadius={"10px"} src={el} alt={i} _hover={{cursor:"pointer"}}/>
-                    </Box>
+                    {/* </Box> */}
                 </SwiperSlide>
             </>)
         })}

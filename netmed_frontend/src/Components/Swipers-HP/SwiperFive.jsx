@@ -31,9 +31,9 @@ export default function SwiperFive({arr}) {
       >
         {arr && arr.map((el, i) => {
           return (<SwiperSlide key={i}>
-            <br />
+            
             <CardFive key={i} {...el}/>
-            <br />
+            
           </SwiperSlide>)
         })}
         <br />
