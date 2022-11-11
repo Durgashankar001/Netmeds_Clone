@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const app = Router()
 const User = require("../model/Auht.model")
-
+const jwt=require("jsonwebtoken")
 
 app.get("/", async (req, res) => {
     const user=await User.find({})
@@ -36,7 +36,8 @@ app.post("/login", async (req, res) => {
         if (!user) {
             res.status(404).send("User not found")
         } else {
-            res.send("Login successfully")
+            const token = jwt.sign({ id: user._id, email:user.email}, "SECRET1234", { expiresIn:"8 hours" });
+            res.send({message:"login success",token})
         }
     } catch (err) {
         console.log(err.message)

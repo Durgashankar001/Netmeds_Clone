@@ -80,3 +80,29 @@
 
 }
 
+
+
+
+
+
+/* ------------------- ( Account Option) ----------------- */
+
+.AccountGrid {
+    /* margin-top: 50px; */
+    background: #ffffff;
+    position: fixed;
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 10px;
+color: black;
+border: 1px solid red;
+/* margin-left: 20%; */
+  }
+  
+  .Account:hover + .AccountGrid {
+    display: block;
+  }
+  
+  .AccountGrid:hover {
+    display: block;
+  }
