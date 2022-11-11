@@ -22,6 +22,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Sigup_google } from "../../Store/Cred/Cred.action";
 
 export default function SignUp() {
   const [show, setShow] = useState(false);
@@ -51,6 +52,12 @@ export default function SignUp() {
         console.log(err);
       });
   }
+
+  const handlegoogle = (e) => {
+    e.preventDefault();
+    dispatch(Sigup_google());
+    // navigate("/dashboardpanel/*");
+  };
 
   useEffect(() => {
     if (api.status == true) {
@@ -175,6 +182,7 @@ export default function SignUp() {
                 width={155}
                 height="50px"
                 bg={"white"}
+                onClick={handlegoogle}
               >
                 {" "}
                 <img
