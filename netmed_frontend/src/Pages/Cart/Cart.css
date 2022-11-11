@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing:  border-box;
 }
-.swiper-slide img{
-    max-width: 70%;
-    max-height: 70%;
+.my_slider_cart{
+  border-radius: 12px;
+}
+.mySwiper{
+  margin-top: 15px;
 }
 @media only screen and (max-width: 600px) {
     .swiper_display {
