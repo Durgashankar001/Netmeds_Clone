@@ -25,6 +25,7 @@ function productswiper() {
         }}
         
         modules={[Pagination]}
+        
         className="mySwiper"
       >
         <SwiperSlide ><Box className="bos1"><img className="boximg" src="https://www.netmeds.com/images/product-v1/150x150/1045847/lizol_disinfectant_surface_floor_cleaner_liquid_lavender_2_litre_416520_0_0.jpg" alt="" /><h1 className="boh1">Lizol Disinfectant Surface  Cleaner </h1><h2 className="boh2">Mkt: Reckitt Benckiser Healthcare India Pvt Ltd</h2>  <Box className="bos2"><h3 className="bh3">Best price* </h3><h2 className="bh2"> Rs. 339.15</h2></Box>  <Box className="bos6"><h3 className="mh3"> MRP </h3><h4 className="mh4">Rs. 399.00</h4> </Box>   <button className="btn1">ADD TO CART</button></Box></SwiperSlide>

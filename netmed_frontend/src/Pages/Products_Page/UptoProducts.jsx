@@ -23,6 +23,7 @@ function UptoProducts() {
         pagination={{
           clickable: true,
         }}
+        
         modules={[Pagination]}
         className="mySwiper"
       >
