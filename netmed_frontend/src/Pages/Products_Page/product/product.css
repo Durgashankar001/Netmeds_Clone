@@ -1,0 +1,150 @@
+.mainbox{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.sibox{
+
+    width: 100%;
+}
+.mi1{
+    /* border: 1px solid gray; */
+    width: 18%;
+    height: auto;
+}
+.mi4{
+    
+    width: 79%;
+}
+.cat1{
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid rgb(202, 199, 199);
+}
+.cat3{
+    
+    display: flex;
+    gap: 15px;
+}
+.mi5{
+    margin-top: 60px;
+}
+.cat2{
+    font-family: LatoBold;
+    font-size: 14px;
+    color: rgb(163, 160, 160);
+    text-align: center;
+}
+.cat6{
+    background-color:#dfd9d9 ;
+    margin-top: 24px;
+}
+.cat7{
+    height: 100px;
+}
+.cat4{
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 15px;
+}
+.sho2{
+    font-family: LatoBold;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(163, 160, 160);
+    margin-bottom: 10px;
+
+}
+.so3{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.so1{
+    display: flex;
+    gap: 20px;
+    padding: 5px;
+}
+.sortbtn:hover{
+    border: 1px solid skyblue;
+    color: skyblue;
+}
+.sortbtn{
+    background-color: white;
+    width: 110px;
+    height: 30px;
+    border-radius: 5px;
+    font-family: LatoBold;
+    font-size: 14px;
+}
+.soh1{
+    margin-top: 5px;
+    font-family: LatoBold;
+    font-size: 16px;
+}
+.mi3{
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    
+}
+.mi31{
+    width: 260px;
+    background-color: white;
+    border-radius: 10px;
+    height: 480px;
+    margin-bottom: 30px;
+    
+}
+.cgbox{
+    display: flex;
+}
+.cg2:hover{
+    color: black;
+    cursor: pointer;
+}
+.cg2{
+    font-family: LatoBold;
+    font-size: 18px;
+    color: #6f7284;
+}
+.cg21{
+    font-family: LatoBold;
+    font-size: 16px;
+    margin-left: 5px;
+}
+.cg1{
+    font-family: LatoBold;
+    font-size: 22px; 
+}
+.cg5{
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.line{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cgin{
+    background-color: #e4e4e4;
+    height: 30px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    margin: 10px 0px 10px 0px;
+    
+}
+.cgin:hover{
+    border: 1px solid #e4e4e4 ;
+}
+.main123{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}

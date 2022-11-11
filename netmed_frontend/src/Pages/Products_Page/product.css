@@ -52,6 +52,15 @@ body {
 border-radius: 10px;
 
 }
+.bos11{
+  padding: 20px;
+  border: 1px solid rgb(150, 147, 147);
+border-radius: 10px;
+height: 100%;
+
+
+
+}
 
 .bos2{
   display: flex;
