@@ -9,6 +9,7 @@ function well() {
     <div className='bo'>
   
      <Box className='bsw1'> <SwipImage/></Box>
+     
      <h1 className='gh1'>Popular Categories</h1>
     <Box className='bsw2'>
         <Box className='bsw3'><img className='img12' src="https://www.netmeds.com/images/category/v1/3902/thumb/face_personal_care.jpg" alt="" /> <h1 className='h1'>Face Personal Care</h1></Box>
