@@ -3,6 +3,7 @@ import styles from "./navbar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { Link, useNavigate } from "react-router-dom";
+import AccountOption from "./AccountOption";
 export default function Navbar() {
   const nav = useNavigate();
 
@@ -47,10 +48,32 @@ export default function Navbar() {
             <span className={styles.itemCount}>0</span>
           </Box>
 
-          {/* <Link to="/signup"> */}
-          <Box onClick={() => nav("/signup")}>
+          {/* ..................................LOGIN SIGNUP BOX....................... */}
+          <Box>
             <TagLeftIcon w={6} h={6} as={CgProfile} />
-            Sign in/Sign
+
+            <Box
+              cursor={"pointer"}
+              display={"flex"}
+              alignItems="center"
+              gap="1"
+              fontSize={17}
+              className={styles.Account}
+              mt="2"
+              pb="2"
+            >
+              <Text display={["none", "none", "block", "block"]}>
+                Signup/Singin
+              </Text>
+            </Box>
+            <Box
+              className={styles.AccountGrid}
+              w={["15%", "15%", "18%", "18%"]}
+              mt={["5%", "5%", "2.5%", "2.5%"]}
+              ml={["-25%", "-25%", "-12%", "-12%"]}
+            >
+              <AccountOption />
+            </Box>
           </Box>
           {/* </Link> */}
         </Box>

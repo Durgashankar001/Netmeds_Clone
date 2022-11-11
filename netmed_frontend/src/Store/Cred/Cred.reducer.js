@@ -3,7 +3,7 @@ import { AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIGN_IN_SUCCESS, AUTH_SI
 let initial = {
     loading: false,
     error: false,
-    Token:""
+    token:""
 }
 
 export const authReducer = (state=initial,{type,payload}) => {
@@ -15,11 +15,12 @@ export const authReducer = (state=initial,{type,payload}) => {
             }
         }
         case AUTH_SIGN_IN_SUCCESS: {
+            localStorage.setItem("token",JSON.stringify(payload.token))
             return {
                 ...state,
                 loading: false,
                 error: false,
-                Token: token
+                token: payload
             }
         }
         case AUTH_SIGN_IN_ERROR: {

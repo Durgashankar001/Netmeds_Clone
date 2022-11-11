@@ -6,6 +6,7 @@ import {
   PinInput,
   PinInputField,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -19,10 +20,35 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { LoginData } from "../../Store/Cred/Cred.action";
 
 export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  const [data, setData] = useState({});
+  const navigate = useNavigate();
+
+  const token = useSelector((store) => store.Auth.token);
+  const dispatch = useDispatch();
+  console.log(token);
+
+  function handleChange(e) {
+    const { name: key, value } = e.target;
+    setData({ ...data, [key]: value });
+  }
+
+  function handlesubmit(e) {
+    e.preventDefault();
+    // setSubmit(data);
+    dispatch(LoginData(data));
+  }
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <>
@@ -63,13 +89,22 @@ export default function Login() {
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Email Address{" "}
                       </FormLabel>
-                      <Input variant="" placeholder="Enter your Email" />
+                      <Input
+                        onChange={handleChange}
+                        name="email"
+                        value={data.email}
+                        variant=""
+                        placeholder="Enter your Email"
+                      />
 
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Password{" "}
                       </FormLabel>
                       <InputGroup size="md">
                         <Input
+                          name="password"
+                          value={data.password}
+                          onChange={handleChange}
                           pr="4.5rem"
                           type={show ? "text" : "password"}
                           placeholder="Enter password"
@@ -90,6 +125,7 @@ export default function Login() {
                         _hover={{
                           bg: "#24AEB1.500",
                         }}
+                        onClick={handlesubmit}
                       >
                         Signup
                       </Button>
