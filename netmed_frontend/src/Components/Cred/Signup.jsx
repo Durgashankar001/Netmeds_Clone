@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   HStack,
   InputGroup,
@@ -18,11 +19,51 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Sigup_google } from "../../Store/Cred/Cred.action";
 
 export default function SignUp() {
   const [show, setShow] = useState(false);
+  const [data, setData] = useState({});
+  const [api, setApi] = useState({});
+  const navigate = useNavigate();
   const handleClick = () => setShow(!show);
+
+  function handleChange(e) {
+    const { name: key, value } = e.target;
+    setData({ ...data, [key]: value });
+  }
+
+  function blogdata(data) {
+    return axios.post(`http://localhost:8080/user/signup`, data);
+  }
+
+  function handlesubmit(e) {
+    e.preventDefault();
+    // setSubmit(data);
+    blogdata(data)
+      .then((res) => {
+        console.log(res.data);
+        setApi(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const handlegoogle = (e) => {
+    e.preventDefault();
+    dispatch(Sigup_google());
+    // navigate("/dashboardpanel/*");
+  };
+
+  useEffect(() => {
+    if (api.status == true) {
+      navigate("/");
+    }
+  }, [api]);
 
   return (
     <>
@@ -66,20 +107,41 @@ export default function SignUp() {
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Full Name
                       </FormLabel>
-                      <Input variant="" placeholder="Enter your Name" />
+                      <Input
+                        onChange={handleChange}
+                        name="name"
+                        value={data.name}
+                        variant=""
+                        placeholder="Enter your Name"
+                      />
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Email Address{" "}
                       </FormLabel>
-                      <Input variant="" placeholder="Enter your Email" />
+                      <Input
+                        variant=""
+                        onChange={handleChange}
+                        name="email"
+                        value={data.email}
+                        placeholder="Enter your Email"
+                      />
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Phone Number{" "}
                       </FormLabel>
-                      <Input type="tel" placeholder="Phone number" />
+                      <Input
+                        type="tel"
+                        onChange={handleChange}
+                        name="phone"
+                        value={data.phone}
+                        placeholder="Phone number"
+                      />
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
                         Password{" "}
                       </FormLabel>
                       <InputGroup size="md">
                         <Input
+                          onChange={handleChange}
+                          name="password"
+                          value={data.password}
                           pr="4.5rem"
                           type={show ? "text" : "password"}
                           placeholder="Enter password"
@@ -100,6 +162,7 @@ export default function SignUp() {
                         _hover={{
                           bg: "#24AEB1.500",
                         }}
+                        onClick={handlesubmit}
                       >
                         Signup
                       </Button>
@@ -119,6 +182,7 @@ export default function SignUp() {
                 width={155}
                 height="50px"
                 bg={"white"}
+                onClick={handlegoogle}
               >
                 {" "}
                 <img

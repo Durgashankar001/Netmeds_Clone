@@ -60,7 +60,7 @@ const Cart = () => {
                                 
                                 <SaveToLater_Component saveLaterData={saveLaterData} />
                             </Box>
-                           <Promocode_Component handlePromocodeINput={handlePromocodeINput} mypromo={mypromo}/>
+                           <Promocode_Component handlePromocodeINput={handlePromocodeINput} mypromo={mypromo} buttontext={"PROCEED"} navigation={'/cart/order-review'}/>
                         </Box>
                     </Box>
             }

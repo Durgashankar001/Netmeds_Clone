@@ -5,7 +5,7 @@ export default function Card({name,price,img,off}){
     return (<>
         <Box className={styles.Card}>
             <Box p="1rem">
-                <Image src={img} alt="img" width={"100%"} height="150px"/>
+                <Image src={img} alt="img" width={"100%"}/>
             </Box>
             <Box style={{maxWidth:"30ch",textOverflow:"ellipsis",overflow:"hidden",whiteSpace:"nowrap"}}>
                 {name}
