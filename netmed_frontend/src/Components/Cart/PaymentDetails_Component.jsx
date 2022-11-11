@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Button, Center, Checkbox, Flex, Heading, Image, Input, Select, Spinner, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
-const PaymentDetails_Component = () => {
+const PaymentDetails_Component = ({buttontext,navigation}) => {
+    const navigate = useNavigate()
   return (
     <Box p='10px' pb='20px' borderRadius={'5px'} bg='#fff' mb='15px'>
                 <Box p='5px'>
@@ -34,7 +36,7 @@ const PaymentDetails_Component = () => {
                         <Text fontSize={'20px'} as='b'>Rs.{500}</Text>
                     </Box>
                     <Box>
-                        <Button bg='#24aeb1' borderRadius={'2px'} color='#fff' letterSpacing={'1px'} _hover='none' p='0 30px'>PROCEED</Button>
+                        <Button onClick={()=>navigate(navigation)} bg='#24aeb1' borderRadius={'2px'} color='#fff' letterSpacing={'1px'} _hover='none' p='0 30px'>{buttontext}</Button>
                     </Box>
                 </Flex>
             </Box>

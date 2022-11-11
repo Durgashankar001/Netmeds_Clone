@@ -1,9 +1,9 @@
-import { AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIGN_IN_SUCCESS, AUTH_SIGN_OUT } from "./Cred.type"
+import { AUTH_GOOGLE_SUCCESS, AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIGN_IN_SUCCESS, AUTH_SIGN_OUT } from "./Cred.type"
 
 let initial = {
     loading: false,
     error: false,
-    Token:""
+    token:""
 }
 
 export const authReducer = (state=initial,{type,payload}) => {
@@ -15,11 +15,12 @@ export const authReducer = (state=initial,{type,payload}) => {
             }
         }
         case AUTH_SIGN_IN_SUCCESS: {
+            localStorage.setItem("token",JSON.stringify(payload.token))
             return {
                 ...state,
                 loading: false,
                 error: false,
-                Token: token
+                token: payload
             }
         }
         case AUTH_SIGN_IN_ERROR: {
@@ -29,6 +30,15 @@ export const authReducer = (state=initial,{type,payload}) => {
                 error: true
             }
         }
+            
+        case AUTH_GOOGLE_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                error: false,
+                token: payload
+            }
+     }
         case AUTH_SIGN_OUT: {
             return {
                 ...state,
