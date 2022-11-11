@@ -13,26 +13,23 @@ const AccountOption = () => {
         textAlign="left"
         fontWeight={400}
       > */}
-      <Box pt={6} pb="4" bg="#f2f2f2" w="100%" pl="10">
-        <Button
-          bg={"#2e3337"}
-          color="#ffffff"
-          w={"200px"}
-          _hover={{ bg: "#48c9b0", color: "black" }}
+      <Box background={"white"} border="1px #e5e5e5 solid">
+        <Box
+          textAlign="center"
+          _hover={{ bg: "#e5e5e5",textDecoration:"underline"}}
+          pt={4} pb={4}
           onClick={() => nav("/login")}
         >
-          LOGIN
-        </Button>
-        <br />
-        <Button
-          mt={"20px"}
-          bg={"#ffffff"}
-          border="1px"
-          w={"200px"}
+          Login
+        </Box>
+        <Box
+          _hover={{ bg: "#e5e5e5",textDecoration:"underline"}}
+          pt={4} pb={4}
+          textAlign="center"
           onClick={() => nav("/login")}
         >
-          REGISTER
-        </Button>
+          Register
+        </Box>
       </Box>
       {/* </Grid> */}
     </Box>
@@ -40,3 +37,10 @@ const AccountOption = () => {
 };
 
 export default AccountOption;
+
+//
+// mt={"20px"}
+//           bg={"#ffffff"}
+//           border="1px"
+//           bg={"#2e3337"}
+//           color="#ffffff"

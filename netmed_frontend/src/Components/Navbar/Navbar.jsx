@@ -2,7 +2,6 @@ import { Box, Input, Image, Select, Text, TagLeftIcon } from "@chakra-ui/react";
 import styles from "./navbar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { Link, useNavigate } from "react-router-dom";
 import AccountOption from "./AccountOption";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images-HP/metneds.png";
@@ -45,38 +44,36 @@ export default function Navbar() {
         </Box>
         <Box className={styles.cartBox}>
           <Box onClick={() => nav("/cart")}>
-            <TagLeftIcon w={6} h={6} as={AiOutlineShoppingCart} />
+            <TagLeftIcon w={6} h={6} as={AiOutlineShoppingCart} onClick={()=>nav("/cart")}/>
             <span className={styles.cartSpan}>Cart</span>
             <span className={styles.itemCount}>0</span>
           </Box>
 
           {/* ..................................LOGIN SIGNUP BOX....................... */}
           <Box>
-            <TagLeftIcon w={6} h={6} as={CgProfile} />
+            <TagLeftIcon w={6} h={6} as={CgProfile} onClick={()=>nav("/login")}/>
 
             <Box
               cursor={"pointer"}
               display={"flex"}
               alignItems="center"
               gap="1"
-              fontSize={17}
+              fontSize={14}
               className={styles.Account}
               mt="2"
               pb="2"
             >
-              <Text display={["none", "none", "block", "block"]}>
-                Signup/Singin
-              </Text>
+              <span className={styles.cartSpan}>Sign in/Sign</span>
             </Box>
             <Box
               className={styles.AccountGrid}
-              w={["15%", "15%", "18%", "18%"]}
+              w={["10%", "10%", "12%", "12%"]}
               mt={["5%", "5%", "2.5%", "2.5%"]}
               ml={["-25%", "-25%", "-12%", "-12%"]}
             >
               <AccountOption />
             </Box>
-            <span className={styles.cartSpan}>Sign in/Sign</span>
+            
           </Box>
           {/* </Link> */}
         </Box>
