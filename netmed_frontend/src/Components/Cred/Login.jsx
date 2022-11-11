@@ -22,7 +22,7 @@ import {
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginData } from "../../Store/Cred/Cred.action";
+import { LoginData, Sigup_google } from "../../Store/Cred/Cred.action";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -38,6 +38,12 @@ export default function Login() {
     const { name: key, value } = e.target;
     setData({ ...data, [key]: value });
   }
+
+  const handlegoogle = (e) => {
+    e.preventDefault();
+    dispatch(Sigup_google());
+    // navigate("/dashboardpanel/*");
+  };
 
   function handlesubmit(e) {
     e.preventDefault();
@@ -144,6 +150,7 @@ export default function Login() {
                 width={155}
                 height="50px"
                 bg={"white"}
+                onClick={handlegoogle}
               >
                 {" "}
                 <img
