@@ -2,7 +2,8 @@ import { Box, Input, Image, Select, Text, TagLeftIcon } from "@chakra-ui/react";
 import styles from "./navbar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import logo from "../../images-HP/metneds.png";
 export default function Navbar() {
   const nav = useNavigate();
 
@@ -11,7 +12,7 @@ export default function Navbar() {
       <Box className={styles.main}>
         <Box onClick={() => nav("/")} className={styles.imgBox}>
           {/* <Link to="/"> */}
-          <Image alt="logo" />
+          <Image alt="logo" src={logo}/>
           {/* </Link> */}
         </Box>
         <Box className={styles.inpGroup}>
@@ -43,14 +44,14 @@ export default function Navbar() {
         <Box className={styles.cartBox}>
           <Box onClick={() => nav("/cart")}>
             <TagLeftIcon w={6} h={6} as={AiOutlineShoppingCart} />
-            <span>Cart</span>
+            <span className={styles.cartSpan}>Cart</span>
             <span className={styles.itemCount}>0</span>
           </Box>
 
           {/* <Link to="/signup"> */}
           <Box onClick={() => nav("/signup")}>
             <TagLeftIcon w={6} h={6} as={CgProfile} />
-            Sign in/Sign
+            <span className={styles.cartSpan}>Sign in/Sign</span>
           </Box>
           {/* </Link> */}
         </Box>
