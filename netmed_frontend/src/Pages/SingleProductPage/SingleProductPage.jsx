@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import SinglePageTabs from "../../Components/SinglePage/SinglePageTabs";
-import { postData } from "../../Store/Cart/Cart.action";
+import { getCartData, postData } from "../../Store/Cart/Cart.action";
 import RelatedPost from "./RelatedPost";
 import Review from "./Review";
 import "./SingleProdctPage.css";
@@ -46,7 +46,7 @@ const toast=useToast()
       duration: 5000,
       isClosable: true,
     })
-    
+    dispatch(getCartData(token));
   }
 
   return (
