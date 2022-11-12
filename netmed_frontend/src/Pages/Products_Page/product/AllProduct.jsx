@@ -31,6 +31,11 @@ const dispatch=useDispatch()
     }
     console.log("Token", token )
 
+
+
+
+
+
     function AddtoCart(product , token){
         console.log("Token", token )
         dispatch(postData(token, product))
@@ -117,7 +122,7 @@ useEffect(()=>{
                     <Box className='mi31 ' key={e.id} >
 
                     <Box className="bos11"><img className="boximg" src={e.img1} alt="" />
-                    <h1 className="boh1">{e.title}</h1>
+                    <h1 style={{maxWidth:"60ch",textOverflow:"ellipsis",overflow:"hidden",whiteSpace:"nowrap"}} className="boh1">{e.title}</h1>
                     <h2 className="boh2">{e.manufacturer}</h2> 
                      <Box className="bos2"><h3 className="bh3">Best price* </h3><h2 className="bh2"> Rs. {e.actual_price}</h2></Box> 
                       <Box className="bos6"><h3 className="mh3"> MRP </h3><h4 className="mh4">Rs. {e.crossed_price}</h4>
