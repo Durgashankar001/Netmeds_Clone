@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Box, Button, Image, Select, Text, useToast, withDefaultProps } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartData, getCartData, updateCartData } from '../../Store/Cart/Cart.action';
+import { useEffect } from 'react';
 
 const SingleProduct_comopnent = ({ myCartData, date, getTotalValue }) => {
     const [total, setTotal] = useState(0)
@@ -14,10 +15,14 @@ const SingleProduct_comopnent = ({ myCartData, date, getTotalValue }) => {
         dispatch(updateCartData(token, id, quantity, toast))
         await getTotalValue(token)
     }
-    const handleDelete = (id) => {
+    const handleDelete = async(id) => {
         dispatch(deleteCartData(token, id, toast))
         dispatch(getCartData(token))
+        await getTotalValue(token);
     }
+    useEffect(()=>{
+        getTotalValue(token);
+    },[getTotalValue]);
     return (
         <Box>
             {
