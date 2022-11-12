@@ -22,21 +22,20 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
-        <Route path="/product" element={<AllProduct/>}/>
+        <Route path="/product" element={<AllProduct />} />
 
         <Route
           path="/cart"
           element={
-         
+            <Require>
               <Cart />
-
+            </Require>
           }
         />
         <Route path="/wellness" element={<Well />} />
         <Route path="/cart/order-review" element={<Order_Review />} />
         <Route path="/cart/checkout" element={<Payment />} />
         <Route path="/product/:id" element={<SingleProductPage />} />
-        
       </Routes>
     </div>
   );

@@ -38,24 +38,6 @@ export default function Login() {
   // console.log(token.status);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (api) {
-  //     toast({
-  //       title: "Login Successfull",
-  //       status: "success",
-  //       duration: 9000,
-  //       isClosable: true,
-  //     });
-  //   } else {
-  //     toast({
-  //       title: "Login Failed.",
-  //       status: "error",
-  //       duration: 9000,
-  //       isClosable: true,
-  //     });
-  //   }
-  // }, [api]);
-
   function handleChange(e) {
     const { name: key, value } = e.target;
     setData({ ...data, [key]: value });
@@ -70,28 +52,14 @@ export default function Login() {
   function handlesubmit(e) {
     e.preventDefault();
     // setSubmit(data);
-    dispatch(LoginData(data));
+    dispatch(LoginData(data, toast, navigate));
   }
-  useEffect(() => {
-    if (token.status == true) {
-      toast({
-        title: "Login Succesfull.😊",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
-      setTimeout(() => {
-        navigate("/");
-      }, 600);
-    } else {
-      toast({
-        title: "Login Failed",
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-    }
-  }, [token]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate("/");
+  //   }, 600);
+  // }, [token]);
 
   return (
     <>

@@ -1,12 +1,20 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Signout } from "../../Store/Cred/Cred.action";
 //import styles from "./navbar.module.css";
 
 const AccountOption = () => {
   const nav = useNavigate();
-  const { token } = useSelector(store => store.Auth);
+  const { token } = useSelector((store) => store.Auth);
+  const dispatch = useDispatch();
+
+  function logout() {
+    dispatch(Signout());
+  }
+
   console.log(token);
   return (
     <Box>
@@ -16,37 +24,39 @@ const AccountOption = () => {
         textAlign="left"
         fontWeight={400}
       > */}
-      {!token ? <>
-        <Box background={"white"} border="1px #e5e5e5 solid">
-          <Box
-            textAlign="center"
-            _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
-            pt={4}
-            pb={4}
-            onClick={() => nav("/login")}
-          >
-            Login
+      {!token ? (
+        <>
+          <Box background={"white"} border="1px #e5e5e5 solid">
+            <Box
+              textAlign="center"
+              _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
+              pt={4}
+              pb={4}
+              onClick={() => nav("/login")}
+            >
+              Login
+            </Box>
+            <Box
+              _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
+              pt={4}
+              pb={4}
+              textAlign="center"
+              onClick={() => nav("/signup")}
+            >
+              Register
+            </Box>
+            <Box
+              _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
+              pt={4}
+              pb={4}
+              textAlign="center"
+              onClick={() => nav("/product")}
+            >
+              All Products
+            </Box>
           </Box>
-          <Box
-            _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
-            pt={4}
-            pb={4}
-            textAlign="center"
-            onClick={() => nav("/signup")}
-          >
-            Register
-          </Box>
-          <Box
-            _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
-            pt={4}
-            pb={4}
-            textAlign="center"
-            onClick={() => nav("/product")}
-          >
-            All Products
-          </Box>
-        </Box>
-      </> :
+        </>
+      ) : (
         <>
           <Box
             _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
@@ -80,11 +90,12 @@ const AccountOption = () => {
             pt={4}
             pb={4}
             textAlign="center"
-            onClick={() => nav("/signup")}
+            onClick={logout}
           >
             Logout
           </Box>
-        </>}
+        </>
+      )}
 
       {/* </Grid> */}
     </Box>
