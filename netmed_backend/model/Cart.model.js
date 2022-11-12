@@ -6,6 +6,11 @@ const CartSchema = new Schema({
     ref:"Auth",
     required:true,
   },
+  product_id:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"product",
+    required:true,
+  },
   title: { type: String, required: true },
   img1: { type: String, required: true },
   actual_price: { type: String, required: true },
@@ -13,7 +18,8 @@ const CartSchema = new Schema({
   manufacturer: { type: String, required: false },
   country: { type: String, required: false },
   category: { type: String, required: false },
-  sub_category: { type: String, required: false }
+  sub_category: { type: String, required: false },
+  quantity:{type:Number,default:1}
 });
 
 const Cart = model("cart", CartSchema);

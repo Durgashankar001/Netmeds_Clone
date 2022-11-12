@@ -3,7 +3,7 @@ import { AUTH_GOOGLE_SUCCESS, AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIG
 let initial = {
     loading: false,
     error: false,
-    token:""
+    token:JSON.parse(localStorage.getItem("token")) || ""
 }
 
 export const authReducer = (state=initial,{type,payload}) => {
