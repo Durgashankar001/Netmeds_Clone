@@ -174,8 +174,6 @@ export default function Homepage() {
             <SwiperFive arr={healthLib}/>
         </Box>
         <br />
-        <About/>
-        <Footer/>
         
 
     </Box>)

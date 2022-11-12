@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Login from "./Components/Cred/Login";
-import Signup from "./Components/Cred/Signup";
-import Homepage from "./Components/Homepage/Homepage";
+import About from "./Components/Footer-HP/About";
+import Footer from "./Components/Footer-HP/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Router from "./Routes/Router";
 
@@ -16,6 +15,9 @@ function App() {
       <br />
       <br />
       <Router />
+      <br />
+      <About />
+      <Footer />
     </div>
   );
 }
