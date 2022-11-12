@@ -23,6 +23,20 @@ app.get("/", middleWare, async (req, res) => {
         return res.status(500).send({ message: "Internal Server Error", e })
     }
 })
+app.get("/total", middleWare, async (req, res) => {
+    const id = req.user_id
+    try {
+        let sum = 0
+        const cart = await Cart.find({ user_id: id })
+        for(let i = 0;i<cart.length;i++){
+            sum+=cart[i].quantity*Number(cart[i].actual_price)
+        }
+      
+        return res.status(200).send(sum.toString())
+    } catch (e) {
+        return res.status(500).send({ message: "Internal Server Error", e })
+    }
+})
 
 app.post("/", middleWare, async (req, res) => {
     const user_id = req.user_id
@@ -55,10 +69,10 @@ app.delete("/:id", middleWare, async (req, res) => {
     }
 })
 
-app.put("/:id", async (req, res) => {
+app.put("/:id",middleWare, async (req, res) => {
     const user_id = req.user_id
     let { id } = req.params
-    // if (user_id) {
+    if (user_id) {
         try {
             const updateCart = await Cart.findByIdAndUpdate(
                 {_id:req.params.id},
@@ -72,10 +86,11 @@ app.put("/:id", async (req, res) => {
             res.status(500).send(err);
         }
 
-    // } else {
-    //     return res.status(401).send("you are not autonticated")
-    // }
+    } else {
+        return res.status(401).send("you are not autonticated")
+    }
 })
+
 
 
 module.exports = app

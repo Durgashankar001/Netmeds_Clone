@@ -1,7 +1,7 @@
 
 //..............Import all dependency..........................//
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import "./Order_Review.css"
 import Order_Status_Component from '../../Components/Order_Review/Order_Status_Component';
@@ -9,6 +9,10 @@ import PaymentDetails_Component from '../../Components/Cart/PaymentDetails_Compo
 import Single_Product_Component from '../../Components/Order_Review/Single_Product_Component';
 import Order_Delivery_component from '../../Components/Order_Review/Order_Delivery_component';
 import Order_Customer_Note_Component from '../../Components/Order_Review/Order_Customer_Note_Component';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartData } from '../../Store/Cart/Cart.action';
+import jwt_decode from "jwt-decode"
+import axios from 'axios';
 
 
 //..............Mock Data for Oreder review..........................//
@@ -36,7 +40,35 @@ let myCartData = [
 //.....................Functional Component start..........................//
 
 const Order_Review = () => {
-    const [loading, setLoding] = useState(false)
+    const token = useSelector((store) => store.Auth.token);
+    const { loading, error, data } = useSelector((store) => store.cart)
+    const [number, setNumber] = useState(0)
+    const [length, setLength] = useState(0)
+    const [total, setTotal] = useState(0)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        let isMounted = true
+        dispatch(getCartData(token))
+        return () => {
+            isMounted = false
+        }
+    }, [data.length])
+    useEffect(() => {
+        getTotalValue(token)
+    }, [])
+    const getTotalValue = async (token) => {
+        const myToken = jwt_decode(token)
+        const user = myToken.id
+        await axios.get('http://localhost:8080/cart/total', {
+            headers: {
+                "x-authorization": `Bearer ${user}`
+            }
+        }).then((res) => {
+            setTotal(res.data)
+        }).catch((e) => {
+            console.log(e)
+        })
+    }
     const date = Date(Date.now())
     return (
         <Box bg='#F6F6F7' >
@@ -52,7 +84,7 @@ const Order_Review = () => {
                             <Box>
                                 <Text color='rgba(21,27,57,.6)' fontSize='16px' fontWeight={"bold"} mb={"10px"}>PRODUCTS</Text>
                                 {
-                                    myCartData.map((el)=>(
+                                    data.map((el)=>(
                                         <Single_Product_Component {...el}/>
                                     ))
                                 }
@@ -61,7 +93,7 @@ const Order_Review = () => {
                                 <Order_Customer_Note_Component/>
                         </SimpleGrid>
                         <Box w={{ base: "100%", lg: "50%" }}>
-                            <PaymentDetails_Component  navigation={'/cart/checkout'} buttontext={'PAY'}/>
+                            <PaymentDetails_Component total={total}  navigation={'/cart/checkout'} buttontext={'PAY'}/>
                             <Box mt='-20px' p='15px'>
                                 <Text as='i' fontSize={'10px'} lineHeight='-10px'>Netmeds is a technology platform to facilitate transaction of business. The products and services are offered for sale by the sellers. The user authorizes the delivery personnel to be his agent for delivery of the goods. For details read <span style={{ color: '#0033ff' }}>Terms & Conditions</span></Text>
                             </Box>

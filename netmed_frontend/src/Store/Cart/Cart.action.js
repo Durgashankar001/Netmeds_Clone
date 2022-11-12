@@ -8,6 +8,7 @@ import {
 
 import axios from "axios"
 import jwt_decode from "jwt-decode"
+import { async } from "@firebase/util"
 
 //.........................Post Cart Data in DataBase...............//
 
@@ -17,15 +18,15 @@ export const postData = (token, product, toast) => async (dispatch) => {
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
         let response = await axios.post("http://localhost:8080/cart", {
-             "product_id":product._id,
-             "title":product.title,
-            "img1":product.img1,
-            "actual_price":product.actual_price,
-            "crossed_price":product.crossed_price,
-            "manufacturer":product.manufacturer,
-            "country":product.country,
-            "category":product.category,
-            "sub_category":product.sub_category
+            "product_id": product._id,
+            "title": product.title,
+            "img1": product.img1,
+            "actual_price": product.actual_price,
+            "crossed_price": product.crossed_price,
+            "manufacturer": product.manufacturer,
+            "country": product.country,
+            "category": product.category,
+            "sub_category": product.sub_category
         }, {
             headers: {
                 "x-authorization": `Bearer ${user}`
@@ -53,8 +54,16 @@ export const getCartData = (token) => async (dispatch) => {
             }
         })
         dispatch({ type: CART_PRODUCT_SUCCESS, payload: response.data })
+        return response.data
     } catch (e) {
         dispatch({ type: CART_PRODUCT_ERROR })
+        toast({
+            title: 'We are not able to complete your request. Please try again after sometime',
+            status: 'error',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
     }
 
 }
@@ -62,9 +71,10 @@ export const getCartData = (token) => async (dispatch) => {
 
 //.........................Update Cart Data in Database.............................//
 
-export const updateCartData = (token, id, quantity) => async (dispatch) => {
+export const updateCartData = (token, id, quantity, toast, getTotalValue) => async (dispatch) => {
     const myToken = jwt_decode(token)
     const user = myToken
+    console.log(user, quantity)
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
         let response = await axios.put(`http://localhost:8080/cart/${id}`, {
@@ -74,9 +84,61 @@ export const updateCartData = (token, id, quantity) => async (dispatch) => {
                 "x-authorization": `Bearer ${user}`
             },
         })
+        getCartData(token)
         dispatch({ type: CART_PRODUCT_EDIT_SUCCESS })
+        toast({
+            title: 'Product updated successfully',
+            status: 'success',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
 
     } catch (e) {
         dispatch({ type: CART_PRODUCT_ERROR })
+        toast({
+            title: 'We are not able to complete your request. Please try again after sometime',
+            status: 'error',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
     }
 }
+
+
+//.....................Delete Cart Data...............//
+
+export const deleteCartData = (token, id, toast) => async (dispatch) => {
+    const myToken = jwt_decode(token)
+    const user = myToken
+    dispatch({ type: CART_PRODUCT_LOADING })
+    try {
+        let response = await axios.delete(`http://localhost:8080/cart/${id}`, {
+            headers: {
+                "x-authorization": `Bearer ${user}`
+            },
+        })
+        getCartData(token)
+        dispatch({ type: CART_PRODUCT_REMOVE_SUCCESS })
+        toast({
+            title: 'Product Removed successfully',
+            status: 'success',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
+    } catch (e) {
+        dispatch({ type: CART_PRODUCT_ERROR })
+        toast({
+            title: 'We are not able to complete your request. Please try again after sometime',
+            status: 'error',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
+    }
+}
+
+
+//.................Get Total Price...................//

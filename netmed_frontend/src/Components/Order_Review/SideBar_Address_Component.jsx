@@ -29,7 +29,7 @@ const SideBar_Address_Component = () => {
             {/* <Button leftIcon={<AddIcon />} colorScheme='teal' onClick={onOpen}>
                 Change Address
             </Button> */}
-            <Box fontSize={"14px"} mr={'10px'} fontWeight={"bold"} display={"flex"} cursor={"pointer"} alignItems={"center"} onClick={onOpen}> <AddIcon style={{marginRight:"5px"}}/> SELECT ADDRESS</Box>
+            <Box fontSize={"14px"} mr={'10px'} fontWeight={"bold"} display={"flex"} cursor={"pointer"} alignItems={"center"} onClick={onOpen}> <AddIcon style={{marginRight:"5px"}}/> ADD NEW ADDRESS</Box>
             <Drawer
                 isOpen={isOpen}
                 placement='right'
