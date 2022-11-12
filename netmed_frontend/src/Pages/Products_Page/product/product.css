@@ -149,3 +149,10 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
+
+@media all and (min-width:100px) and (max-width: 600px) {
+    .main123{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+  }
