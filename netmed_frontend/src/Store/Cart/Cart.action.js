@@ -18,7 +18,7 @@ export const postData = (token, product, toast) => async (dispatch) => {
     try {
         let response = await axios.post("http://localhost:8080/cart", {
              "product_id":product._id,
-             "title:product":title,
+             "title":product.title,
             "img1":product.img1,
             "actual_price":product.actual_price,
             "crossed_price":product.crossed_price,

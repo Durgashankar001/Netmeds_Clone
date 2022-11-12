@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex, Toast, useToast } from '@chakra-ui/react'
 import React from 'react'
 import SideBar from './SideBar'
 import "./product.css"
@@ -8,6 +8,8 @@ import SwipImage from "../swipImage"
 import axios from "axios"
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { postData } from '../../../Store/Cart/Cart.action'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 const AllProduct = () => {
@@ -17,32 +19,44 @@ const [data , setData]=useState([])
 const [page, setpage] = useState(1);
 const [sort, setSort]=useState("desc");
 const [filter, setFilter]=useState("")
+const toast=useToast();
+const token = useSelector((store) => store.Auth.token);
+const dispatch=useDispatch()
     function getData(page,sort){
-        axios.get(`https://netmeds-data.herokuapp.com/products?_page=${page}&_limit=16&_sort=actual_price&_order=${sort}`)
+        axios.get(`http://localhost:8080/products?_page=${page}&_limit=16&_sort=actual_price&_order=${sort}`)
         .then((res)=>setData(res.data))
         .catch((err)=>console.log(err))
 
     }
+    console.log("Token", token )
 
+    function AddtoCart(product , token){
+        console.log("Token", token )
+        dispatch(postData(token, product))
+        toast({
+                            title: 'product added to cart',
+                            status: 'success',
+                            isClosable: true,
+                        })
+    
 
-    function AddtoCart(item){
-        axios.post(`https://netmeds-data.herokuapp.com/cart`, item)
-                .then(() => {
-                    dispatch()
-                    toast({
-                        title: 'Item added to cart',
-                        status: 'success',
-                        isClosable: true,
-                    })
-                })
-                .catch((err) => {
-                    console.log(err)
-                    toast({
-                        title: 'Item is already in cart',
-                        status: 'error',
-                        isClosable: true,
-                    })
-                })
+        // axios.post(`http://localhost:8080/cart`, product)
+        //         .then(() => {
+        //             dispatch(postData(product))
+        //             toast({
+        //                 title: 'product added to cart',
+        //                 status: 'success',
+        //                 isClosable: true,
+        //             })
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //             toast({
+        //                 title: 'product is already in cart',
+        //                 status: 'error',
+        //                 isClosable: true,
+        //             })
+        //         })
     }
     function handlesortA(){
         
@@ -106,7 +120,7 @@ useEffect(()=>{
                      <Box className="bos2"><h3 className="bh3">Best price* </h3><h2 className="bh2"> Rs. {e.actual_price}</h2></Box> 
                       <Box className="bos6"><h3 className="mh3"> MRP </h3><h4 className="mh4">Rs. {e.crossed_price}</h4>
                        </Box>  
-                       <button className="btn1" onClick={AddtoCart(e)}>ADD TO CART</button></Box>
+                       <button className="btn1" onClick={()=>AddtoCart(e , token)}>ADD TO CART</button></Box>
         
                     </Box>
                    )) 
