@@ -52,6 +52,7 @@ export const cartReducer = (state=intialState,{type,payload}) => {
 
 
         case CART_PRODUCT_REMOVE_SUCCESS: {
+            
             return {
                 ...state,
                 loading:false,

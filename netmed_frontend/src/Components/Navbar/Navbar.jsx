@@ -5,16 +5,20 @@ import { CgProfile } from "react-icons/cg";
 import AccountOption from "./AccountOption";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images-HP/metneds.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 export default function Navbar() {
   const nav = useNavigate();
-  const {data} = useSelector(store=>store.cart);
+  const dispatch = useDispatch();
+  const name = useSelector((store) => store.Auth.name);
+  console.log();
+
+  const { data } = useSelector((store) => store.cart);
   return (
     <>
       <Box className={styles.main}>
         <Box onClick={() => nav("/")} className={styles.imgBox}>
           {/* <Link to="/"> */}
-          <Image alt="logo" src={logo}/>
+          <Image alt="logo" src={logo} />
           {/* </Link> */}
         </Box>
         <Box className={styles.inpGroup}>
@@ -45,15 +49,18 @@ export default function Navbar() {
         </Box>
         <Box className={styles.cartBox}>
           <Box onClick={() => nav("/cart")}>
-            <TagLeftIcon w={6} h={6} as={AiOutlineShoppingCart} onClick={()=>nav("/cart")}/>
+            <TagLeftIcon
+              w={6}
+              h={6}
+              as={AiOutlineShoppingCart}
+              onClick={() => nav("/cart")}
+            />
             <span className={styles.cartSpan}>Cart</span>
-            <span className={styles.itemCount}>{data?data.length:0}</span>
+            <span className={styles.itemCount}>{data ? data.length : 0}</span>
           </Box>
 
           {/* ..................................LOGIN SIGNUP BOX....................... */}
-          <Box >
-            
-
+          <Box>
             <Box
               cursor={"pointer"}
               display={"flex"}
@@ -63,8 +70,15 @@ export default function Navbar() {
               mt="2"
               pb="2"
             >
-              <TagLeftIcon w={6} h={6} as={CgProfile} onClick={()=>nav("/login")}/>
-              <span className={styles.cartSpan}>Sign in/Sign</span>
+              <TagLeftIcon
+                w={6}
+                h={6}
+                as={CgProfile}
+                onClick={() => nav("/login")}
+              />
+              <span className={styles.cartSpan}>
+                {name ? name : "Signup/Signin"}
+              </span>
             </Box>
             <Box
               className={styles.AccountGrid}
@@ -74,7 +88,6 @@ export default function Navbar() {
             >
               <AccountOption />
             </Box>
-            
           </Box>
           {/* </Link> */}
         </Box>
