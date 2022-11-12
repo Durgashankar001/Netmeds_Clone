@@ -12,6 +12,8 @@ import Swiper_Component from '../../Components/Cart/Swiper_Component';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCartData } from '../../Store/Cart/Cart.action';
+import axios from 'axios';
+import jwt_decode from "jwt-decode"
 
 
 //...........Mock Data for creating cart................//
@@ -41,15 +43,35 @@ let myCartData = [
 const Cart = () => {
     const token = useSelector((store) => store.Auth.token);
     const { loading, error, data } = useSelector((store) => store.cart)
+    const [number, setNumber] = useState(0)
     const [mypromo, setPromo] = useState(false)
+    const [length, setLength] = useState(0)
+    const [total, setTotal] = useState(0)
     const dispatch = useDispatch()
     useEffect(() => {
         let isMounted = true
-        isMounted && dispatch(getCartData(token))
+        dispatch(getCartData(token))
         return () => {
             isMounted = false
         }
+    }, [data.length])
+    useEffect(() => {
+        getTotalValue(token)
     }, [])
+    const getTotalValue = async (token) => {
+        const myToken = jwt_decode(token)
+        const user = myToken.id
+        await axios.get('http://localhost:8080/cart/total', {
+            headers: {
+                "x-authorization": `Bearer ${user}`
+            }
+        }).then((res) => {
+            setTotal(res.data)
+        }).catch((e) => {
+            console.log(e)
+        })
+    }
+
     const handlePromocodeINput = () => {
         setPromo(!mypromo)
     }
@@ -57,7 +79,7 @@ const Cart = () => {
     return (
         <Box position={'relative'} bg='#F6F6F7'>
             {
-                myCartData.length === 0 ?
+                data && data.length === 0 ?
                     <EmptyCart_Component saveLaterData={saveLaterData} /> :
                     <Box>
                         {
@@ -70,14 +92,14 @@ const Cart = () => {
                         <Box display={{ base: 'block', lg: 'flex' }} w={{ base: "95%", lg: "80%" }} m='auto' gap='25px' mt='30px'>
 
                             <Box w='100%'>
-                                <Product_component myCartData={data} />
+                                <Product_component getTotalValue={getTotalValue} myCartData={data} />
                                 <Box className='swiper_display' w={"100%"} p={"10px"} mt={"1rem"}>
                                     <Swiper_Component />
                                 </Box>
 
                                 <SaveToLater_Component saveLaterData={saveLaterData} />
                             </Box>
-                            <Promocode_Component handlePromocodeINput={handlePromocodeINput} mypromo={mypromo} buttontext={"PROCEED"} navigation={'/cart/order-review'} />
+                            <Promocode_Component total={total} handlePromocodeINput={handlePromocodeINput} mypromo={mypromo} buttontext={"PROCEED"} navigation={'/cart/order-review'} />
                         </Box>
                     </Box>
             }

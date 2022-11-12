@@ -11,8 +11,17 @@ const Order_Delivery_component = () => {
             </Flex>
 
             <Box >
-                <Text color='#151b39' mb='10px' fontSize='16px' fontWeight='bold'>{"Durgashankr Pal"}</Text>
-                <Text lineHeight='40px' w={{ base: '100%', md: '100%', lg: '30%' }} fontSize='14px'>
+                <Flex justifyContent={'space-between'}>
+                    <Text color='#151b39' mb='10px' fontSize='16px' fontWeight='bold'>{"Office Address"}</Text>
+                    <Checkbox colorScheme={'green'}></Checkbox>
+                </Flex>
+                <Flex justifyContent={'space-between'}>
+                    <Text color='#151b39' mb='10px' fontSize='16px' fontWeight='bold'>{"Home Address"}</Text>
+                    <Checkbox colorScheme={'green'}></Checkbox>
+                </Flex>
+
+
+                {/* <Text lineHeight='40px' w={{ base: '100%', md: '100%', lg: '30%' }} fontSize='14px'>
                     {"Simulia ," + " " + "Balasore"}
 
                 </Text>
@@ -26,7 +35,7 @@ const Order_Delivery_component = () => {
 
                     {6372585440 + "   "}
 
-                </Text>
+                </Text> */}
             </Box>
         </Box>
     )

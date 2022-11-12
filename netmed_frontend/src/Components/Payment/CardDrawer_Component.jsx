@@ -9,11 +9,26 @@ import {
     InputGroup, InputLeftAddon, Flex, Text, Alert,
     AlertIcon,
     AlertTitle,
-    AlertDescription, CloseButton, FormControl
+    AlertDescription, CloseButton, FormControl, useToast, useControllableState
 } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 
 const CardDrawer_Component = () => {
+    const navigate = useNavigate()
+    const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        toast({
+            title: 'Your Payment was successfull, You will recieve a confirnmation mail shortly 😊',
+            status: 'success',
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        })
+        navigate("/")
+    }
     return (
         <FormControl isRequired>
 
@@ -97,7 +112,7 @@ const CardDrawer_Component = () => {
                     </DrawerBody>
 
                     <DrawerFooter borderTopWidth='1px'>
-                        <Button colorScheme='twitter' width='100%'>Pay</Button>
+                        <Button onClick={handleSubmit} colorScheme='twitter' width='100%'>Pay</Button>
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>
