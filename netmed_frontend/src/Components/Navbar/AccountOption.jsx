@@ -16,17 +16,19 @@ const AccountOption = () => {
       <Box background={"white"} border="1px #e5e5e5 solid">
         <Box
           textAlign="center"
-          _hover={{ bg: "#e5e5e5",textDecoration:"underline"}}
-          pt={4} pb={4}
+          _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
+          pt={4}
+          pb={4}
           onClick={() => nav("/login")}
         >
           Login
         </Box>
         <Box
-          _hover={{ bg: "#e5e5e5",textDecoration:"underline"}}
-          pt={4} pb={4}
+          _hover={{ bg: "#e5e5e5", textDecoration: "underline" }}
+          pt={4}
+          pb={4}
           textAlign="center"
-          onClick={() => nav("/login")}
+          onClick={() => nav("/signup")}
         >
           Register
         </Box>

@@ -7,6 +7,7 @@ import {
   PinInput,
   PinInputField,
 } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -28,6 +29,7 @@ export default function SignUp() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState({});
   const [api, setApi] = useState({});
+  const toast = useToast();
   const navigate = useNavigate();
   const handleClick = () => setShow(!show);
 
@@ -61,7 +63,24 @@ export default function SignUp() {
 
   useEffect(() => {
     if (api.status == true) {
-      navigate("/");
+      toast({
+        title: "Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 600);
+    } else {
+      toast({
+        title: "Account Not Created.",
+        description: "We can't Create your account ",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   }, [api]);
 
