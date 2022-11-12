@@ -1,7 +1,9 @@
 import {Box, Button, Image} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import styles from "./swipers.module.css";
 
 export default function Card({name,price,img,off}){
+    const nav = useNavigate();
     return (<>
         <Box className={styles.Card}>
             <Box p="1rem">
@@ -17,7 +19,7 @@ export default function Card({name,price,img,off}){
                 {off}
             </Box>
             <Box mt={"1.2rem"}>
-                <Button color={"white"} backgroundColor="#32AEB1" width={"100%"} size="sm">Add to Cart</Button>
+                <Button onClick={()=>nav("/product")} color={"white"} backgroundColor="#32AEB1" width={"100%"} size="sm">See details</Button>
             </Box>
         </Box>
     </>)

@@ -7,6 +7,9 @@
     font-weight: 600;
     font-size: 14px;
 }
+.homeMain:hover{
+    cursor: pointer;
+}
 .category{
     display: flex;
     padding: 10px 8rem 10px 8rem;
