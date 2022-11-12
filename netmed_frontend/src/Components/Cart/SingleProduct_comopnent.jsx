@@ -1,29 +1,36 @@
-import React from 'react'
-import { Box, Button, Image, Select, Text } from '@chakra-ui/react';
+import React, { useState } from 'react'
+import { Box, Button, Image, Select, Text, withDefaultProps } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCartData } from '../../Store/Cart/Cart.action';
 
 const SingleProduct_comopnent = ({ myCartData,date }) => {
+    const token = useSelector((store) => store.Auth.token);
+    const dispatch = useDispatch()
+    const productChange =(quantity,id) =>{
+        dispatch(updateCartData(token,id,quantity))
+    }
     return (
         <Box>
             {
-                myCartData.map(el => (
+               myCartData && myCartData.map(el => (
                     <Box key={el.id} borderBottom='1px solid #dddde0' p='15px 0'>
                         <Box display={{ base: 'block', lg: 'flex' }}>
-                            <Box><Image style={{ objectFit: "cover", margin: "auto", display: 'block' }} w={{ base: '120px', lg: '40px' }} h={{ base: '100px', lg: '40px' }} src={el.img}></Image></Box>
+                            <Box><Image style={{ objectFit: "cover", margin: "auto", display: 'block' }} w={{ base: '120px', lg: '40px' }} h={{ base: '100px', lg: '40px' }} src={el.img1}></Image></Box>
                             <Box ml='20px'>
                                 <Text>{el.title}</Text>
-                                <Text fontSize={'12px'} color='#151B3999' as='i'>Mfr: {el.man}</Text>
+                                <Text fontSize={'12px'} color='#151B3999' as='i'>Mfr: {el.manufacturer}</Text>
                             </Box>
                         </Box>
                         <Box ml={{ base: '20px', lg: '60px' }} mt='10px' display={'flex'} justifyContent='space-between' position={'relative' }>
                             <Box display={{ base: 'block', md: 'flex' }} alignItems={'flex-end'}>
-                                <Text fontWeight={'600'} color='#ef4281' mr='5px'>Rs. {parseFloat(el.price).toFixed(2)}</Text>
+                                <Text fontWeight={'600'} color='#ef4281' mr='5px'>Rs. {parseFloat(el.actual_price).toFixed(2)}</Text>
                                 {
-                                    el.dis_price && <Text color='#151B3999' fontWeight={'400'} textDecoration={'line-through'} fontSize={'12px'}>Rs. {parseFloat(el.dis_price).toFixed(2)}</Text>
+                                    el.crossed_price && <Text color='#151B3999' fontWeight={'400'} textDecoration={'line-through'} fontSize={'12px'}>Rs. {parseFloat(el.crossed_price).toFixed(2)}</Text>
                                 }
                             </Box>
                             <Box>
                                 <Box>
-                                    <Select p={0} style={{ border: "1px solid rgba(21,27,57,.2)", letterSpacing: "2px", fontSize: "13px", fontWeight: "500", outline: "none" }} placeholder={el.quantity ? 'QTY :' + el.quantity : 'QTY :' + 1}>
+                                    <Select onChange={(e)=>productChange(e.target.value,el._id)} p={0} style={{ border: "1px solid rgba(21,27,57,.2)", letterSpacing: "2px", fontSize: "13px", fontWeight: "500", outline: "none" }} placeholder={el.quantity ? 'QTY :' + el.quantity : 'QTY :' + 1}>
                                         {
                                             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(el => (
                                                 <option key={el} value={el}>{el}</option>
