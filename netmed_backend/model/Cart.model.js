@@ -11,5 +11,5 @@ const CartSchema = new Schema({
   sub_category: { type: String, required: true }
 });
 
-const Cart = model("product", CartSchema);
+const Cart = model("cart", CartSchema);
 module.exports = Cart;

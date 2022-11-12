@@ -11,9 +11,9 @@ app.use(cors())
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use("/user",AuthData)
+app.use("/users",AuthData)
 app.use("/products", ProductData)
-app.use("/cart",CartData)
+app.use("/carts",CartData)
 
 
 app.get('/', (req, res) => res.send('hello'))

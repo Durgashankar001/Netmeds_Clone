@@ -22,7 +22,7 @@ export default function Router() {
         <Route path="/signup" element={<SignUp />} />
 
         <Route path="/product" element={<AllProduct/>}/>
-
+    
         <Route
           path="/cart"
           element={
