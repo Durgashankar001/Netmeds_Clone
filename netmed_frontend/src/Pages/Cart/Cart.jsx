@@ -1,5 +1,8 @@
+
+//...........Import all dependency................//
+
 import React, { useState } from 'react'
-import { Box, Button, Center, Checkbox, Flex, Heading, Image, Input, Select, Spinner, Text } from '@chakra-ui/react';
+import { Box, Heading, Spinner } from '@chakra-ui/react';
 import Product_component from '../../Components/Cart/Product_component';
 import SaveToLater_Component from '../../Components/Cart/SaveToLater_Component';
 import EmptyCart_Component from '../../Components/Cart/EmptyCart_Component';
@@ -8,6 +11,7 @@ import Promocode_Component from '../../Components/Cart/Promocode_Component';
 import Swiper_Component from '../../Components/Cart/Swiper_Component';
 
 
+//...........Mock Data for creating cart................//
 
 let saveLaterData = [
     {
@@ -27,6 +31,9 @@ let myCartData = [
         dis_price: "770.00"
     }
 ]
+
+
+//...........Functional Component Start................//
 
 const Cart = () => {
     const [loading, setLoading] = useState(false)

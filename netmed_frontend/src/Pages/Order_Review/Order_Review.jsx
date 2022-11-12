@@ -1,11 +1,18 @@
+
+//..............Import all dependency..........................//
+
 import React, { useState } from 'react'
-import { Box, Button, Center, Checkbox, Flex, Heading, Image, Input, Select, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
+import { Box, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import "./Order_Review.css"
 import Order_Status_Component from '../../Components/Order_Review/Order_Status_Component';
 import PaymentDetails_Component from '../../Components/Cart/PaymentDetails_Component';
 import Single_Product_Component from '../../Components/Order_Review/Single_Product_Component';
 import Order_Delivery_component from '../../Components/Order_Review/Order_Delivery_component';
 import Order_Customer_Note_Component from '../../Components/Order_Review/Order_Customer_Note_Component';
+
+
+//..............Mock Data for Oreder review..........................//
+
 
 let myCartData = [
     {
@@ -23,6 +30,10 @@ let myCartData = [
         dis_price: "770.00"
     }
 ]
+
+
+
+//.....................Functional Component start..........................//
 
 const Order_Review = () => {
     const [loading, setLoding] = useState(false)
