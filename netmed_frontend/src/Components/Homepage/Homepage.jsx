@@ -11,36 +11,29 @@ import SwiperFour from "../Swipers-HP/SwiperFour";
 import Membership from "../Features/Membership";
 import StaticThree, { exploB } from "../Swipers-HP/StaticThree";
 import Consult from "../Features/Consult";
-import { topBrands ,bestB, personalC, mensGroom, healthCon, healthLib, limitedDeals, brandCetaphil, axiomAyurveda} from "../Swipers-HP/SwiperArr";
+import { topBrands, bestB, personalC, mensGroom, healthCon, healthLib, limitedDeals, brandCetaphil, axiomAyurveda } from "../Swipers-HP/SwiperArr";
 import { shopByCate } from "../Swipers-HP/StaticTwo";
 import StaticFour from "../Swipers-HP/StaticFour";
 import MedRefill from "../Features/MedRefill";
 import SwiperFive from "../Swipers-HP/SwiperFive";
 import About from "../Footer-HP/About";
 import Footer from "../Footer-HP/Footer";
+import { useNavigate } from "react-router-dom";
 
+let markOne = ["Medicine", "Wellness", "Lab tests", "Beauty", "Health Corner"]
+let markTwo = ["COVID essentials", "Diabetes", "EyeWear", "Ayush", "Ayurvedic", "Homeopathy", "Fitness", "Mom & Baby", "Devices", "Surgicals", "Sexual Wellness", "Treatments"]
 export default function Homepage() {
+    const nav = useNavigate();
     return (<Box background={"whitesmoke"} w="100%">
         <Box className={styles.homeMain}>
-            <Box>Medicine</Box>
-            <Box>Wellness</Box>
-            <Box>Lab tests</Box>
-            <Box>Beauty</Box>
-            <Box>Health Corner</Box>
+            {markOne && markOne.map((el,i) => {
+                return (<Box onClick={()=>nav("/wellness")} key={i+1}>{el}</Box>)
+            })}
         </Box>
         <Box className={styles.category}>
-            <Box>COVID essentials</Box>
-            <Box>Diabetes</Box>
-            <Box>EyeWear</Box>
-            <Box>Ayush</Box>
-            <Box>Ayurvedic</Box>
-            <Box>Homeopathy</Box>
-            <Box>Fitness</Box>
-            <Box>Mom & Baby</Box>
-            <Box>Devices</Box>
-            <Box>Surgicals</Box>
-            <Box>Sexual Wellness</Box>
-            <Box>Treatments</Box>
+            {markTwo && markTwo.map((el,i) => {
+                return (<Box onClick={()=>nav("/product")} key={i+1}>{el}</Box>)
+            })}
         </Box>
         <br />
         {/* swiper one */}
@@ -66,7 +59,7 @@ export default function Homepage() {
         </Box>
         <br />
         <Box pl="2rem" pr="2rem">
-            <SwiperThree arr={limitedDeals}/>
+            <SwiperThree arr={limitedDeals} />
         </Box>
         <br />
         <Box className={styles.limited} mb={-90}>
@@ -79,7 +72,7 @@ export default function Homepage() {
             <br />
         </Box>
         <Box pl="2rem" pr="2rem">
-            <SwiperThree arr={axiomAyurveda}/>
+            <SwiperThree arr={axiomAyurveda} />
         </Box>
         <br />
         <Box className={styles.limited} mb={-90}>
@@ -92,12 +85,12 @@ export default function Homepage() {
             <br />
         </Box>
         <Box pl="2rem" pr="2rem">
-            <SwiperThree arr={brandCetaphil}/>
+            <SwiperThree arr={brandCetaphil} />
         </Box>
         <br />
         <TopHeader color="black" text="Shop by Category" />
         <br />
-        <StaticTwo arr={shopByCate}/>
+        <StaticTwo arr={shopByCate} />
         <br />
         <TopHeader color="black" text="New on Metneds" />
         <br />
@@ -108,15 +101,15 @@ export default function Homepage() {
         <TopHeader color={"black"} text="Top Brands" />
         <br />
         <Box pl="2rem" pr="2rem">
-            <SwiperFour arr={topBrands}/>
+            <SwiperFour arr={topBrands} />
         </Box>
         <br />
-        <Membership/>
+        <Membership />
         <br />
-        <TopHeader color={"black"} text="Categories in Focus"/>
+        <TopHeader color={"black"} text="Categories in Focus" />
         <br />
         <Box pl="2rem" pr="2rem">
-            <SwiperFour arr={topBrands}/>
+            <SwiperFour arr={topBrands} />
         </Box>
         <br />
         <Box className={styles.limited} mb={-110} background="#EF4281">
@@ -129,9 +122,9 @@ export default function Homepage() {
             <br />
         </Box>
         <br />
-        <StaticThree arr={exploB}/>
+        <StaticThree arr={exploB} />
         <br />
-        <Consult/>
+        <Consult />
         <br />
         <Box className={styles.limited} mb={-95} background="#899095">
             <br />
@@ -143,22 +136,22 @@ export default function Homepage() {
             <br />
         </Box>
         <Box pl="2rem" pr="2rem">
-            <SwiperFour arr={bestB}/>
+            <SwiperFour arr={bestB} />
         </Box>
         <br />
-        <TopHeader color={"black"} text="Personal Care"/>
+        <TopHeader color={"black"} text="Personal Care" />
         <br />
-        <StaticThree arr={personalC}/>
+        <StaticThree arr={personalC} />
         <br />
-        <TopHeader color={"black"} text="Men's Grooming"/>
+        <TopHeader color={"black"} text="Men's Grooming" />
         <br />
-        <StaticTwo arr={mensGroom}/>
+        <StaticTwo arr={mensGroom} />
         <br />
-        <MedRefill/>
+        <MedRefill />
         <br />
-        <TopHeader color="black" text={"Health Concerns"}/>
+        <TopHeader color="black" text={"Health Concerns"} />
         <br />
-        <StaticFour arr={healthCon}/>
+        <StaticFour arr={healthCon} />
         <br />
         <Box className={styles.limited} mb={-100} background="#EF4281">
             <br />
@@ -171,7 +164,7 @@ export default function Homepage() {
         </Box>
         <br />
         <Box pl="2rem" pr="2rem">
-            <SwiperFive arr={healthLib}/>
+            <SwiperFive arr={healthLib} />
         </Box>
         <br />
         

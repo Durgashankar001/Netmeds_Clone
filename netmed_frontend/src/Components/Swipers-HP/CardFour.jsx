@@ -1,8 +1,10 @@
 import {Box,Image} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import styles from "./swipers.module.css";
 export default function CardFour({img,title,off}){
+    const nav = useNavigate();
     return (<>
-        <Box className={styles.CardFour}>
+        <Box className={styles.CardFour} onClick={()=>nav("/product")}>
             <br />
             <Image src={img} alt={title}/>
             <br />

@@ -234,7 +234,7 @@ export let limitedDeals = [
     },
     {
         name:"LA life shield Anti-tanning",
-        img:"https://www.netmeds.com/images/product-v1/150x150/1038910/tynor_life_heating_pad_ortho_mini_1s_394603_0_0.jpg",
+        img:"https://www.netmeds.com/images/product-v1/150x150/917051/la_shield_lite_spf_30_pa_anti_tanning_sunscreen_gel_30_gm_0_1.jpg",
         price:"345",
         off:"UPTO 49% of",
         id:"5"
