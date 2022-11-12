@@ -1,9 +1,9 @@
 import { AUTH_GOOGLE_SUCCESS, AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIGN_IN_SUCCESS, AUTH_SIGN_OUT } from "./Cred.type"
-
+let token=localStorage.getItem("token")|| ""
 let initial = {
     loading: false,
     error: false,
-    token:""
+    token
 }
 
 export const authReducer = (state=initial,{type,payload}) => {

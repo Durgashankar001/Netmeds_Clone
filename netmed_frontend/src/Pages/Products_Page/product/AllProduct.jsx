@@ -24,6 +24,26 @@ const [filter, setFilter]=useState("")
 
     }
 
+
+    function AddtoCart(item){
+        axios.post(`https://netmeds-data.herokuapp.com/cart`, item)
+                .then(() => {
+                    dispatch()
+                    toast({
+                        title: 'Item added to cart',
+                        status: 'success',
+                        isClosable: true,
+                    })
+                })
+                .catch((err) => {
+                    console.log(err)
+                    toast({
+                        title: 'Item is already in cart',
+                        status: 'error',
+                        isClosable: true,
+                    })
+                })
+    }
     function handlesortA(){
         
     //     let acs=data.sort((a,b)=>a.actual_price - b.actual_price)
@@ -86,7 +106,7 @@ useEffect(()=>{
                      <Box className="bos2"><h3 className="bh3">Best price* </h3><h2 className="bh2"> Rs. {e.actual_price}</h2></Box> 
                       <Box className="bos6"><h3 className="mh3"> MRP </h3><h4 className="mh4">Rs. {e.crossed_price}</h4>
                        </Box>  
-                       <button className="btn1">ADD TO CART</button></Box>
+                       <button className="btn1" onClick={AddtoCart(e)}>ADD TO CART</button></Box>
         
                     </Box>
                    )) 

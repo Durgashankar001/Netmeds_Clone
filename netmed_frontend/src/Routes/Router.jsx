@@ -26,9 +26,9 @@ export default function Router() {
         <Route
           path="/cart"
           element={
-            <Require>
+         
               <Cart />
-            </Require>
+
           }
         />
         <Route path="/wellness" element={<Well />} />

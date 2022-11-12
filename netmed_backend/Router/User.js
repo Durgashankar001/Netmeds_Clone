@@ -13,7 +13,7 @@ app.post("/signup", async (req, res) => {
     const { name, email, phone, password } = req.body
     
     try {
-        const user = await User.findOne({ email, phone })
+        const user = await User.findOne({email})
         
         if (user) {
             res.send("User alredy exists")
@@ -37,7 +37,7 @@ app.post("/login", async (req, res) => {
             res.status(404).send("User not found")
         } else {
             const token = jwt.sign({ id: user._id, email:user.email}, "SECRET1234", { expiresIn:"8 hours" });
-            res.send({message:"login success",token})
+            res.send({status:true,message:"login success",token})
         }
     } catch (err) {
         console.log(err.message)

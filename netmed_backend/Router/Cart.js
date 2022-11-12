@@ -1,19 +1,36 @@
-const {Router} = require('express')
+const { Router } = require('express')
 const app = Router()
 const Cart = require("../model/Cart.model")
 
+const middleWare = (req, res, next) => {
+    const authHeader = req.headers["x-authorization"]
+    if (authHeader) {
+        const id = authHeader.split(" ")[1]
+        req.user_id = id
+        next()
+    } else {
+        res.status(401).send("You are not authonticated")
+    }
+}
 
-app.get("/", async (req, res) => {
-    const cart=await Cart.find({})
-    res.send(cart)
+
+app.get("/", middleWare, async (req, res) => {
+    const id = req.user_id
+    try {
+        const cart = await Cart.find({ user_id: id })
+        return res.status(200).send(cart)
+    } catch (e) {
+        return res.status(500).send({ message: "Internal Server Error", e })
+    }
 })
 
-app.post("/", async (req, res) => { 
-    const { title, img1, actual_price, crossed_price } = req.body;
+app.post("/", middleWare, async (req, res) => {
+    const user_id = req.user_id
+    console.log(user_id)
+    const { product_id, title, img1, actual_price, crossed_price, manufacturer, country, category, sub_category, quantity } = req.body;
     try {
-        let cartData = await Cart.create({ title, img1, actual_price, crossed_price })
+        let cartData = await Cart.create({ user_id, product_id, title, img1, actual_price, crossed_price, manufacturer, country, category, sub_category, quantity })
         res.send(cartData)
-
     } catch (err) {
         console.log(err.message)
     }
@@ -21,27 +38,44 @@ app.post("/", async (req, res) => {
 })
 
 
-app.delete("/", async (req, res) => {
+app.delete("/:id", middleWare, async (req, res) => {
+    const user_id = req.user_id
     const { id } = req.params
-    try {
-        let remove = await Cart.deleteOne({ _id: id })
-        res.send("Item Remove sucessfully")
-        
-    } catch (err) {
-        res.send(err.message)
+    if (user_id) {
+        try {
+            let remove = await Cart.deleteOne({ _id: id })
+            return res.status(200).send("Item Deleted successfully")
+
+        } catch (err) {
+            return res.send(err.message)
+        }
+
+    } else {
+        return res.status(401).send("You are not authonticated")
     }
 })
 
-app.patch("/:id",async(req, res) => {
+app.put("/:id", async (req, res) => {
+    const user_id = req.user_id
     let { id } = req.params
-    try {
-        let newdata = await Todo.replaceOne({_id:id })
-        res.send(newdata)
-    } catch (err) {
-        res.status(401).send("Wrong id")
-    }
-    
+    // if (user_id) {
+        try {
+            const updateCart = await Cart.findByIdAndUpdate(
+                {_id:req.params.id},
+                {
+                 quantity:req.body.quantity
+                },
+                { new: true }
+            );
+            res.status(200).send(updateCart);
+        } catch (err) {
+            res.status(500).send(err);
+        }
+
+    // } else {
+    //     return res.status(401).send("you are not autonticated")
+    // }
 })
 
 
-module.exports=app
+module.exports = app

@@ -7,6 +7,8 @@ import {
   PinInputField,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
+import { useToast } from "@chakra-ui/react";
+
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -27,12 +29,32 @@ import { LoginData, Sigup_google } from "../../Store/Cred/Cred.action";
 export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  // const [api, setApi] = useState();
   const [data, setData] = useState({});
+  const toast = useToast();
   const navigate = useNavigate();
 
   const token = useSelector((store) => store.Auth.token);
+  // console.log(token.status);
   const dispatch = useDispatch();
-  console.log(token);
+
+  // useEffect(() => {
+  //   if (api) {
+  //     toast({
+  //       title: "Login Successfull",
+  //       status: "success",
+  //       duration: 9000,
+  //       isClosable: true,
+  //     });
+  //   } else {
+  //     toast({
+  //       title: "Login Failed.",
+  //       status: "error",
+  //       duration: 9000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // }, [api]);
 
   function handleChange(e) {
     const { name: key, value } = e.target;
@@ -51,8 +73,23 @@ export default function Login() {
     dispatch(LoginData(data));
   }
   useEffect(() => {
-    if (token) {
-      navigate("/");
+    if (token.status == true) {
+      toast({
+        title: "Login Succesfull.😊",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 600);
+    } else {
+      toast({
+        title: "Login Failed",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   }, [token]);
 
@@ -133,7 +170,7 @@ export default function Login() {
                         }}
                         onClick={handlesubmit}
                       >
-                        Signup
+                        Login
                       </Button>
                     </Stack>
                   </Box>

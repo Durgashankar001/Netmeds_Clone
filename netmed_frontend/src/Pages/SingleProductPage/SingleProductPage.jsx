@@ -87,7 +87,7 @@ export default function SingleProductPage() {
               </ListItem>
             </UnorderedList>
             <br />
-            <Button colorScheme="teal" size="md">
+            <Button colorScheme="teal" size="md" >
               ADD TO CART
             </Button>
           </div>
