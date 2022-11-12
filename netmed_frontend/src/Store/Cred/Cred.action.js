@@ -8,7 +8,7 @@ import { auth } from "../../firebass/firebass"
 export const LoginData = (cred,toast,navigate) => async (dispatch) => {
     dispatch({ type: AUTH_SIGN_IN_LOADING })
     try {
-        let res = await axios.post("http://localhost:8080/user/login", cred)
+        let res = await axios.post("https://netmed-production.up.railway.app/user/login", cred)
         console.log(res.data)
         dispatch({ type: AUTH_SIGN_IN_SUCCESS, payload: res.data })
         toast({

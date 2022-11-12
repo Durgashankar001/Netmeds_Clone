@@ -21,10 +21,11 @@ import "./SingleProdctPage.css";
 export default function SingleProductPage() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  let url = `http://localhost:8080/products/${id}`;
+  let url = `https://netmed-production.up.railway.app/products/${id}`;
   const token = useSelector((store) => store.Auth.token);
-const dispatch=useDispatch()
-const toast=useToast()
+  const dispatch=useDispatch()
+  const toast=useToast()
+  const [pin,setPin]=useState()
   
 
   let getData = async () => {
@@ -33,10 +34,6 @@ const toast=useToast()
     setData(res_data);
     // console.log(res_data)
   };
-  // console.log(data)
-  useEffect(() => {
-    getData();
-  }, []);
 
   const handleADD=(data,token)=>{
     dispatch(postData(token, data))
@@ -49,6 +46,31 @@ const toast=useToast()
     dispatch(getCartData(token));
   }
 
+  const checkDelivery=()=>{
+    if(pin.length==6){
+      toast({
+        title: `Item can be deliverd at this ${pin}`,
+        duration: 2000,
+        isClosable: true,
+        position: 'top-centre',
+      })
+    }
+    else {
+      toast({
+        title: `Item can't be deliverd at this ${pin}`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+        position: 'top-centre',
+      })
+    }
+    
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+  
   return (
     <div>
       <div id="ProductPage">
@@ -86,7 +108,7 @@ const toast=useToast()
                 MRP ₹ {data.crossed_price}{" "}
               </Text>
               <Text fontSize="xs" color="#37916c" as="b">
-                GET 42% OFF
+                GET {Math.floor((data.actual_price/data.crossed_price)*100)}% OFF
               </Text>
             </div>
 
@@ -117,8 +139,8 @@ const toast=useToast()
               <Text color="teal" as="b">
                 PINCODE:
               </Text>
-              <Input placeholder="Enter Pincode" w={40} />
-              <Button colorScheme="teal" size="sm">
+              <Input placeholder="Enter Pincode" w={40} onChange={(e) => setPin(e.target.value)} />
+              <Button colorScheme="teal" size="sm" onClick={()=>checkDelivery()}>
                 Check
               </Button>
             </div>
@@ -133,7 +155,7 @@ const toast=useToast()
                 <div>
                   <Text fontSize="sm">Default Discount</Text>
                   <Text fontSize="sm" color="teal">
-                    You get 42% OFF on this product
+                    You get {Math.floor((data.actual_price/data.crossed_price)*100)}% OFF on this product
                   </Text>
                 </div>
                 <div>
@@ -160,7 +182,7 @@ const toast=useToast()
       <RelatedPost/>
 
       {/* disclaimer */}
-      <div id="productDisclaimer" style={{boxShadow:"rgba(0, 0, 0, 0.16) 0px 1px 4px;", width:"90%"}}>
+      <div id="productDisclaimer" >
         <Box bg="white" w="100%" p={4} color="black" >
           <Text color="#6f7284" as='b'>DISCLAIMER</Text>
           <Text fontSize="xs" >
