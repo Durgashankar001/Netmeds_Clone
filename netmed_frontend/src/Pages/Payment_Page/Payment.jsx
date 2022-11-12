@@ -28,7 +28,7 @@ const Payment = () => {
     const getTotalValue = async (token) => {
         const myToken = jwt_decode(token)
         const user = myToken.id
-        await axios.get('http://localhost:8080/cart/total', {
+        await axios.get('https://netmed-production.up.railway.app/cart/total', {
             headers: {
                 "x-authorization": `Bearer ${user}`
             }

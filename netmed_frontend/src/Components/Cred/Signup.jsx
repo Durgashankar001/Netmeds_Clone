@@ -39,7 +39,7 @@ export default function SignUp() {
   }
 
   function blogdata(data) {
-    return axios.post(`http://localhost:8080/user/signup`, data);
+    return axios.post(`https://netmed-production.up.railway.app/user/signup`, data);
   }
 
   function handlesubmit(e) {

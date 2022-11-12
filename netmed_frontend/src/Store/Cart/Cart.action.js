@@ -17,7 +17,7 @@ export const postData = (token, product, toast) => async (dispatch) => {
     const user = myToken.id
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.post("http://localhost:8080/cart", {
+        let response = await axios.post("https://netmed-production.up.railway.app/cart", {
             "product_id": product._id,
             "title": product.title,
             "img1": product.img1,
@@ -48,7 +48,7 @@ export const getCartData = (token) => async (dispatch) => {
 
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.get('http://localhost:8080/cart', {
+        let response = await axios.get('https://netmed-production.up.railway.app/cart', {
             headers: {
                 "x-authorization": `Bearer ${user}`
             }
@@ -77,7 +77,7 @@ export const updateCartData = (token, id, quantity, toast, getTotalValue) => asy
     console.log(user, quantity)
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.put(`http://localhost:8080/cart/${id}`, {
+        let response = await axios.put(`https://netmed-production.up.railway.app/cart/${id}`, {
             "quantity": quantity
         }, {
             headers: {
@@ -114,7 +114,7 @@ export const deleteCartData = (token, id, toast) => async (dispatch) => {
     const user = myToken
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.delete(`http://localhost:8080/cart/${id}`, {
+        let response = await axios.delete(`https://netmed-production.up.railway.app/cart/${id}`, {
             headers: {
                 "x-authorization": `Bearer ${user}`
             },
