@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # netmeds-clone
 
 Netmeds is one of India's leading healthcare aggregators and most trusted medicine delivery website. Features:  Sign up/Login Page  Home Page  Cart  Booking
