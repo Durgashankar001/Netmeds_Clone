@@ -12,6 +12,7 @@ import Order_Review from "../Pages/Order_Review/Order_Review";
 import Payment from "../Pages/Payment_Page/Payment";
 
 import Well from "../Pages/Products_Page/wellness";
+import SingleProductPage from "../Pages/SingleProductPage/SingleProductPage";
 
 export default function Router() {
   return (
@@ -34,7 +35,8 @@ export default function Router() {
         <Route path="/wellness" element={<Well />} />
         <Route path="/cart/order-review" element={<Order_Review />} />
         <Route path="/cart/checkout" element={<Payment />} />
-
+        <Route path="/product/:id" element={<SingleProductPage />} />
+        
       </Routes>
     </div>
   );

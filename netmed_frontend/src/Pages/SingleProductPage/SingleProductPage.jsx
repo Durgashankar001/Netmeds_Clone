@@ -6,11 +6,14 @@ import {
   ListItem,
   Text,
   UnorderedList,
+  useToast,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import SinglePageTabs from "../../Components/SinglePage/SinglePageTabs";
+import { postData } from "../../Store/Cart/Cart.action";
 import RelatedPost from "./RelatedPost";
 import Review from "./Review";
 import "./SingleProdctPage.css";
@@ -18,17 +21,33 @@ import "./SingleProdctPage.css";
 export default function SingleProductPage() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  let url = `https://reqres.in/api/users/${1}`;
+  let url = `http://localhost:8080/products/${id}`;
+  const token = useSelector((store) => store.Auth.token);
+const dispatch=useDispatch()
+const toast=useToast()
+  
 
   let getData = async () => {
     let res = await fetch(url);
     let res_data = await res.json();
-    setData(res_data.data);
+    setData(res_data);
+    // console.log(res_data)
   };
-  // console.log(data);
+  // console.log(data)
   useEffect(() => {
     getData();
   }, []);
+
+  const handleADD=(data,token)=>{
+    dispatch(postData(token, data))
+    toast({
+      title: 'Item added to cart',
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+    })
+    
+  }
 
   return (
     <div>
@@ -36,17 +55,17 @@ export default function SingleProductPage() {
         {/* product image */}
         <div id="productImage">
           <img
-            src="https://www.netmeds.com/images/product-v1/600x600/858569/inlife_shatavari_extract_capsules_60_s_0.jpg"
-            alt=""
+            src={data.img1}
+            alt="" 
           />
         </div>
 
         {/* product desc */}
         <div id="productDesc">
           <div id="productName">
-            <Text fontSize="xl">INLIFE Shatavari Extract Capsules 60's</Text>
-            <Button size="xs">Fitness</Button>{" "}
-            <Button size="xs">Ayurvedic Supplement</Button>
+            <Text fontSize="xl">{data.title}</Text>
+            <Button size="xs">{data.category}</Button>{" "}
+            <Button size="xs">{data.sub_category}</Button>
           </div>
           <hr />
           <div id="productPrice">
@@ -55,7 +74,7 @@ export default function SingleProductPage() {
                 Best Price*{" "}
               </Text>
               <Text color="red" fontSize="xl" as="b">
-                ₹ 289.42
+                {data.actual_price}
               </Text>
             </div>
 
@@ -64,7 +83,7 @@ export default function SingleProductPage() {
                 MRP{" "}
               </Text>
               <Text color="#6f7284" fontSize="xs" as="s">
-                MRP ₹ 499.00{" "}
+                MRP ₹ {data.crossed_price}{" "}
               </Text>
               <Text fontSize="xs" color="#37916c" as="b">
                 GET 42% OFF
@@ -87,7 +106,7 @@ export default function SingleProductPage() {
               </ListItem>
             </UnorderedList>
             <br />
-            <Button colorScheme="teal" size="md">
+            <Button colorScheme="teal" size="md" onClick={()=>handleADD(data,token)}>
               ADD TO CART
             </Button>
           </div>
