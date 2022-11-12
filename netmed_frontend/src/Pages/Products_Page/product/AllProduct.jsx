@@ -2,6 +2,7 @@ import { Box, Button, Flex, Toast, useToast } from '@chakra-ui/react'
 import React from 'react'
 import SideBar from './SideBar'
 import "./product.css"
+import { Link, useSearchParams } from "react-router-dom";
 
  
 import SwipImage from "../swipImage"
@@ -17,13 +18,13 @@ const AllProduct = () => {
     
 const [data , setData]=useState([])
 const [page, setpage] = useState(1);
-const [sort, setSort]=useState("desc");
+const [sort, setSort]=useState("asc");
 const [filter, setFilter]=useState("")
 const toast=useToast();
 const token = useSelector((store) => store.Auth.token);
 const dispatch=useDispatch()
     function getData(page,sort){
-        axios.get(`http://localhost:8080/products?_page=${page}&_limit=16&_sort=actual_price&_order=${sort}`)
+        axios.get(`http://localhost:8080/products?page=${page}&_limit=16&_orderBy=actual_price&order=${sort}`)
         .then((res)=>setData(res.data))
         .catch((err)=>console.log(err))
 
@@ -60,16 +61,16 @@ const dispatch=useDispatch()
     }
     function handlesortA(){
         
-    //     let acs=data.sort((a,b)=>a.actual_price - b.actual_price)
-    //    setData(acs)
+        let acs=data.sort((a,b)=>a.actual_price - b.actual_price)
+       setData(acs)
     setSort("desc")
 
     }
 
     function handlesortB(){
         
-    //     let acs=data.sort((a,b)=>b.actual_price - a.actual_price)
-    //    setData(acs)
+        let acs=data.sort((a,b)=>b.actual_price - a.actual_price)
+       setData(acs)
     setSort("asc")
 
     }
@@ -112,7 +113,8 @@ useEffect(()=>{
             {
                 
                    data.map((e)=>(
-                    <Box className='mi31 ' key={e.id}>
+                    <Link to={`/product/${e._id}`}>
+                    <Box className='mi31 ' key={e.id} >
 
                     <Box className="bos11"><img className="boximg" src={e.img1} alt="" />
                     <h1 className="boh1">{e.title}</h1>
@@ -123,6 +125,7 @@ useEffect(()=>{
                        <button className="btn1" onClick={()=>AddtoCart(e , token)}>ADD TO CART</button></Box>
         
                     </Box>
+                    </Link>
                    )) 
             }
 
