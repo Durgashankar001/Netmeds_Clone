@@ -167,7 +167,8 @@ export default function SignUp() {
 
                     <Stack spacing={10}>
                       <Button
-                        width={400}
+                        mt="10px"
+                        width={"100%"}
                         bg={"#24AEB1"}
                         color={"white"}
                         _hover={{

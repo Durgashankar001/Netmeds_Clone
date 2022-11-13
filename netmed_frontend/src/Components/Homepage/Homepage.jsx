@@ -64,7 +64,7 @@ export default function Homepage() {
         <br />
         <Box className={styles.limited} mb={-90}>
             <br />
-            <TopHeader color="white" text="Axios Ayurveda Upto 30% off" />
+            <TopHeader color="white" text="INLIFE pharmaceuticals Upto 30% off" />
             <br />
             <br />
             <br />

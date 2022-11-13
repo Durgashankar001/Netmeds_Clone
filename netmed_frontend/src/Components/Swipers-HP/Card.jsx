@@ -7,7 +7,7 @@ export default function Card({name,price,img,off}){
     return (<>
         <Box className={styles.Card}>
             <Box p="1rem">
-                <Image src={img} alt="img" width={"100%"}/>
+                <Image src={img} alt="img" width={"100%"} onClick={()=>nav("/product")}/>
             </Box>
             <Box style={{maxWidth:"30ch",textOverflow:"ellipsis",overflow:"hidden",whiteSpace:"nowrap"}}>
                 {name}
