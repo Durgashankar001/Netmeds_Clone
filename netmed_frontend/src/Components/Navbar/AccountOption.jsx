@@ -6,13 +6,23 @@ import { useEffect } from "react";
 import { Signout } from "../../Store/Cred/Cred.action";
 //import styles from "./navbar.module.css";
 
+import { useToast } from "@chakra-ui/react";
+
 const AccountOption = () => {
   const nav = useNavigate();
   const { token } = useSelector((store) => store.Auth);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   function logout() {
     dispatch(Signout());
+    toast({
+      title: "Logout successfully",
+      description: "Please visit again😊",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
   }
 
   console.log(token);
