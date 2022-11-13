@@ -1,9 +1,9 @@
 
-# netmeds-clone
+# Metneds
 
 Netmeds is one of India's leading healthcare aggregators and most trusted medicine delivery website. Features:  Sign up/Login Page  Home Page  Cart  Booking
 
-# Netmeds Clone
+# Metneds
 
 ### Project Description
 
