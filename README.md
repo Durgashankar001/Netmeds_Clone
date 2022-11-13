@@ -40,6 +40,8 @@ _To start with the Project run the following command in terminal in "backend" fo
   - `mongoose`
 - #### Database
   - `MongoDB`
+  - `Firebase`
+  
 
 ---
 
