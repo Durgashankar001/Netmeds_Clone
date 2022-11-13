@@ -22,8 +22,10 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { useNavigate } from "react-router-dom"
 
 export default function SwiperOne() {
+  const nav = useNavigate();
   return (
     <Box w="95%" m="auto">
       <Swiper
@@ -42,7 +44,7 @@ export default function SwiperOne() {
       >
         {arr && arr.map((el, i) => {
           return (<SwiperSlide key={i}>
-            <Box _hover={{cursor:"pointer"}}>
+            <Box _hover={{cursor:"pointer"}} onClick={()=>nav("/product")}>
               <Image src={el} alt={i}/>
             </Box>
           </SwiperSlide>)

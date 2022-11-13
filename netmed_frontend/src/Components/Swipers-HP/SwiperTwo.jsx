@@ -20,8 +20,10 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import { useNavigate } from "react-router-dom";
 
 export default function SwiperTwo() {
+  const nav = useNavigate();
   return (
     <>
       <Swiper
@@ -41,7 +43,7 @@ export default function SwiperTwo() {
             return (<>
                 <SwiperSlide>
                     <Box>
-                        <Image borderRadius={"10px"} src={el} alt={i} _hover={{cursor:"pointer"}}/>
+                        <Image onClick={()=>nav("/product")} borderRadius={"10px"} src={el} alt={i} _hover={{cursor:"pointer"}}/>
                     </Box>
                 </SwiperSlide>
             </>)
