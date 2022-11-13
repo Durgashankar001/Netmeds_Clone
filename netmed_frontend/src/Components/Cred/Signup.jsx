@@ -39,7 +39,7 @@ export default function SignUp() {
   }
 
   function blogdata(data) {
-    return axios.post(`http://localhost:8080/user/signup`, data);
+    return axios.post(`https://netmed-production.up.railway.app/user/signup`, data);
   }
 
   function handlesubmit(e) {
@@ -49,9 +49,24 @@ export default function SignUp() {
       .then((res) => {
         console.log(res.data);
         setApi(res.data);
+        toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);
+        toast({
+          title: "Account Not Created.",
+          description: "We can't Create your account ",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
       });
   }
 
@@ -60,29 +75,6 @@ export default function SignUp() {
     dispatch(Sigup_google());
     // navigate("/dashboardpanel/*");
   };
-
-  useEffect(() => {
-    if (api.status == true) {
-      toast({
-        title: "Account created.",
-        description: "We've created your account for you.",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
-      setTimeout(() => {
-        navigate("/login");
-      }, 600);
-    } else {
-      toast({
-        title: "Account Not Created.",
-        description: "We can't Create your account ",
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-    }
-  }, [api]);
 
   return (
     <>

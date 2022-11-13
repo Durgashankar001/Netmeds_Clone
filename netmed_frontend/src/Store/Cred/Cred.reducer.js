@@ -3,7 +3,8 @@ import { AUTH_GOOGLE_SUCCESS, AUTH_SIGN_IN_ERROR, AUTH_SIGN_IN_LOADING, AUTH_SIG
 let initial = {
     loading: false,
     error: false,
-    token:JSON.parse(localStorage.getItem("token")) || ""
+    token: JSON.parse(localStorage.getItem("token")) || "",
+    name:JSON.parse(localStorage.getItem("name")) ||""
 }
 
 export const authReducer = (state=initial,{type,payload}) => {
@@ -15,12 +16,14 @@ export const authReducer = (state=initial,{type,payload}) => {
             }
         }
         case AUTH_SIGN_IN_SUCCESS: {
-            localStorage.setItem("token",JSON.stringify(payload.token))
+            localStorage.setItem("token", JSON.stringify(payload.token))
+            localStorage.setItem("name",JSON.stringify(payload.name))
             return {
                 ...state,
                 loading: false,
                 error: false,
-                token: payload
+                token: payload.token,
+                name:payload.name
             }
         }
         case AUTH_SIGN_IN_ERROR: {
@@ -40,11 +43,14 @@ export const authReducer = (state=initial,{type,payload}) => {
             }
      }
         case AUTH_SIGN_OUT: {
+            localStorage.removeItem("token")
+            localStorage.removeItem("name")
             return {
                 ...state,
                 loading: false,
                 error: false,
-                Token:""
+                token: "",
+                name:""
                 
             }
         }

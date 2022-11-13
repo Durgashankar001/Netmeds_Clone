@@ -13,6 +13,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 > After that run index.html in live server and you are ready to run and explore our project.
 
+## NOTE: [Sample login details:( email:one@gmail.com, password:oneone )]
 ---
 
 

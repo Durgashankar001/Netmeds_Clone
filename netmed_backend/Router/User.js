@@ -36,8 +36,9 @@ app.post("/login", async (req, res) => {
         if (!user) {
             res.status(404).send("User not found")
         } else {
+            const name=user.name
             const token = jwt.sign({ id: user._id, email:user.email}, "SECRET1234", { expiresIn:"8 hours" });
-            res.send({status:true,message:"login success",token})
+            res.send({status:true,message:"login success",token,name})
         }
     } catch (err) {
         console.log(err.message)

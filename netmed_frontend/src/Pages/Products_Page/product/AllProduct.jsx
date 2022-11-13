@@ -24,7 +24,7 @@ const AllProduct = () => {
     const token = useSelector((store) => store.Auth.token);
     const dispatch = useDispatch()
     function getData(page, sort) {
-        axios.get(`http://localhost:8080/products?page=${page}&_limit=16&_orderBy=actual_price&order=${sort}`)
+        axios.get(`https://netmed-production.up.railway.app/products?page=${page}&_limit=16&orderBy=actual_price&order=${sort}`)
             .then((res) => setData(res.data))
             .catch((err) => console.log(err))
 
