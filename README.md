@@ -11,7 +11,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 > > ⌘ **npm start**
 
-> After that run index.html in live server and you are ready to run and explore our project.
+> After that go to the frontend folder and run the command <b>npm run dev</b>
 
 ## NOTE: [Sample login details:( email:one@gmail.com, password:oneone )]
 ---
