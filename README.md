@@ -11,7 +11,7 @@ _To start with the Project run the following command in terminal in "backend" fo
 
 > > ⌘ **npm start**
 
-> After that go to the frontend folder and run the command <b>npm run dev</b>
+> After that go to the frontend folder and run the command <i>"npm run dev"</i>
 
 ## NOTE: [Sample login details:( email:one@gmail.com, password:oneone )]
 ---
