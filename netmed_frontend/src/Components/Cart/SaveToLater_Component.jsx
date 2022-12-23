@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const SaveToLater_Component = ({saveLaterData}) => {
+    let nav = useNavigate();
     return (
         <Box bg="#fff" mt={"2.5rem"} p='0 15px 15px' borderRadius={'7px'}>
             <Text color='#151B3999' as='b' fontSize={'15px'} letterSpacing='1px' style={{ marginBottom: "8px" }}>SAVED FOR LATER</Text>
@@ -29,7 +31,7 @@ const SaveToLater_Component = ({saveLaterData}) => {
                                             <Text fontSize={'12px'} style={{fontStyle:"italic"}} color='#151B3999'>Mfr: {el.man}</Text>
                                             <Flex mt='20px'>
                                                 <Button bg='#e7e8eb' mr='10px' borderRadius={'3px'} fontSize={'12px'} color='#151B3999' size='sm' _hover={'none'} letterSpacing={'1px'} >REMOVE</Button>
-                                                <Button bg='#24aeb1' color='#fff' borderRadius={'3px'} fontSize={'12px'} size='sm' _hover={'none'} letterSpacing={'1px'}>ADD TO CART</Button>
+                                                <Button bg='#24aeb1' color='#fff' borderRadius={'3px'} fontSize={'12px'} size='sm' _hover={'none'} letterSpacing={'1px'} onClick={()=>nav("/product")}>See Details</Button>
                                             </Flex>
                                         </Box>
 

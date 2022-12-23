@@ -1,4 +1,4 @@
-import { Box, Button, Flex, useToast } from '@chakra-ui/react'
+import { Box, Button, Flex, useToast ,Spinner} from '@chakra-ui/react'
 import React from 'react'
 import SideBar from './SideBar'
 import "./product.css"
@@ -22,11 +22,22 @@ const AllProduct = () => {
     const [filter, setFilter] = useState("")
     const toast = useToast();
     const token = useSelector((store) => store.Auth.token);
+    const [load,setLoad] = useState(false);
+
     const dispatch = useDispatch()
-    function getData(page, sort) {
-        axios.get(`https://netmed-production.up.railway.app/products?page=${page}&_limit=16&orderBy=actual_price&order=${sort}`)
-            .then((res) => setData(res.data))
-            .catch((err) => console.log(err))
+    async function getData(page, sort) {
+        //https://met-ned-back.onrender.com/
+        //https://netmed-production.up.railway.app/
+        setLoad(true);
+        await axios.get(`https://met-ned-back.onrender.com/products?page=${page}&_limit=16&orderBy=actual_price&order=${sort}`)
+            .then((res) => {
+                setData(res.data)
+                setLoad(false);
+            })
+            .catch((err) => {
+                console.log(err)
+                setLoad(false);
+            })
 
     }
     console.log("Token", token)
@@ -114,6 +125,11 @@ const AllProduct = () => {
                             <button className='sortbtn'>Discount</button>
                         </Box>
                     </Box>
+                    {load && 
+                    <Box display="flex" justifyContent="space-around" mt="1rem" mb="1rem">
+                        <Spinner thickness="4px" size="xl" align="center"/>
+                    </Box>
+                    }
                     <Box className='main123'>
                         {
 
@@ -122,7 +138,7 @@ const AllProduct = () => {
                                 <Box className='mi31 ' key={e.id} >
                                     <Box className="bos11">
                                         <Link to={`/product/${e._id}`}>
-                                            <img className="boximg" src={e.img1} alt="" />
+                                            <img className="productIMG" src={e.img1} alt="" />
                                         </Link>
                                         <h1 style={{ maxWidth: "60ch", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }} className="boh1">{e.title}</h1>
                                         <h2 className="boh2">{e.manufacturer}</h2>
@@ -146,7 +162,8 @@ const AllProduct = () => {
 
                 </Box>
             </Box>
-
+            <br/>
+            <br/>
         </div>
     )
 }

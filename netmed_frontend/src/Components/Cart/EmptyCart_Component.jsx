@@ -3,18 +3,15 @@ import {
   Box,
   Button,
   Center,
-  Checkbox,
-  Flex,
   Heading,
   Image,
-  Input,
-  Select,
-  Spinner,
   Text,
 } from "@chakra-ui/react";
 import SaveToLater_Component from "./SaveToLater_Component";
+import { useNavigate } from "react-router-dom";
 
 const EmptyCart_Component = ({ saveLaterData }) => {
+  let nav = useNavigate();
   return (
     <Box>
       <Box w="30%" pt="20px">
@@ -70,8 +67,9 @@ const EmptyCart_Component = ({ saveLaterData }) => {
                 color="#fff"
                 borderRadius={"3px"}
                 w="70%"
+                onClick={()=>nav("/product")}
               >
-                ADD PRODUCTS
+                See Details
               </Button>
             </Center>
           </Box>

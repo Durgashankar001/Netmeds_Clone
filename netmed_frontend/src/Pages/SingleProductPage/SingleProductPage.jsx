@@ -21,7 +21,9 @@ import "./SingleProdctPage.css";
 export default function SingleProductPage() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  let url = `https://netmed-production.up.railway.app/products/${id}`;
+  //https://met-ned-back.onrender.com/
+  //https://netmed-production.up.railway.app/
+  let url = `https://met-ned-back.onrender.com/products/${id}`;
   const token = useSelector((store) => store.Auth.token);
   const dispatch=useDispatch()
   const toast=useToast()

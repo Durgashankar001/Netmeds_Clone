@@ -3,12 +3,14 @@ import axios from "axios"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged ,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 import { auth } from "../../firebass/firebass"
 
-
+let authPostFunc = "https://met-ned-back.onrender.com/"
 //............................ Login from mongodb...................
+//oldURL 
+// https://met-ned-back.onrender.com/user/login
 export const LoginData = (cred,toast,navigate) => async (dispatch) => {
     dispatch({ type: AUTH_SIGN_IN_LOADING })
     try {
-        let res = await axios.post("https://netmed-production.up.railway.app/user/login", cred)
+        let res = await axios.post("https://met-ned-back.onrender.com/user/login", cred)
         console.log(res.data)
         dispatch({ type: AUTH_SIGN_IN_SUCCESS, payload: res.data })
         toast({

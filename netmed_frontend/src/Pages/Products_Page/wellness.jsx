@@ -37,6 +37,8 @@ function well() {
         <Box className='bsw3'><img className='img121' src="https://www.netmeds.com/images/cms/wysiwyg/category/v2/img/bone-and-joint-pain.jpg?v=1" alt="" /> <h1 className='h1'>Bone And Joint Pain</h1></Box>
         <Box className='bsw3'><img className='img121' src="https://www.netmeds.com/images/cms/wysiwyg/category/v2/img/cold-and-fever.jpg?v=1" alt="" /> <h1 className='h1'>Cold And Fever</h1></Box>
     </Box>
+    <br />
+    <br />
     </div>
   )
 }

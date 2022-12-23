@@ -33,6 +33,7 @@ export default function Login() {
   const [data, setData] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
+  //const [load,setLoad] = useState(false);
 
   const token = useSelector((store) => store.Auth.token);
   // console.log(token.status);
@@ -95,6 +96,7 @@ export default function Login() {
                   </Text>
                 </Stack>
                 <Box rounded={"lg"}>
+                  
                   <Box spacing={4}>
                     <FormControl>
                       <FormLabel mb={4} ml={0} fontSize={"md"}>

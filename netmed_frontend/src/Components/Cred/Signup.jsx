@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  HStack,
   InputGroup,
-  InputLeftElement,
   InputRightElement,
-  PinInput,
-  PinInputField,
+  Spinner,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
+
 import {
   Flex,
   Box,
@@ -20,7 +17,7 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Sigup_google } from "../../Store/Cred/Cred.action";
@@ -32,6 +29,7 @@ export default function SignUp() {
   const toast = useToast();
   const navigate = useNavigate();
   const handleClick = () => setShow(!show);
+  const [load, setLoad] = useState(false);
 
   function handleChange(e) {
     const { name: key, value } = e.target;
@@ -39,15 +37,19 @@ export default function SignUp() {
   }
 
   function blogdata(data) {
-    return axios.post(`https://netmed-production.up.railway.app/user/signup`, data);
+    //https://met-ned-back.onrender.com/
+    //https://netmed-production.up.railway.app/
+    return axios.post(`https://met-ned-back.onrender.com/user/signup`, data);
   }
 
-  function handlesubmit(e) {
+  async function handlesubmit(e) {
     e.preventDefault();
     // setSubmit(data);
-    blogdata(data)
+    setLoad(true);
+    await blogdata(data)
       .then((res) => {
         console.log(res.data);
+        setLoad(false);
         setApi(res.data);
         toast({
           title: "Account created.",
@@ -60,6 +62,7 @@ export default function SignUp() {
       })
       .catch((err) => {
         console.log(err);
+        setLoad(false);
         toast({
           title: "Account Not Created.",
           description: "We can't Create your account ",
@@ -113,6 +116,11 @@ export default function SignUp() {
                   </Text>
                 </Stack>
                 <Box rounded={"lg"}>
+                  {load &&
+                    <Box display="flex" justifyContent="space-around" mt="1rem" mb="1rem">
+                      <Spinner thickness="4px" size="xl" align="center" />
+                    </Box>
+                  }
                   <Box spacing={4}>
                     <FormControl>
                       <FormLabel mb={4} ml={0} fontSize={"md"}>

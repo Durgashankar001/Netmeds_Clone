@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 #app { height: 100% }
 html,
 body {
@@ -9,7 +10,7 @@ body {
 }
 body {
   /* background: #f3f3f3; */
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;

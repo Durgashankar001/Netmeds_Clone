@@ -10,14 +10,16 @@ import axios from "axios"
 import jwt_decode from "jwt-decode"
 import { async } from "@firebase/util"
 
+let cartPostFunc = "https://met-ned-back.onrender.com/cart"
+//oldURL = "https://netmed-production.up.railway.app/cart"
 //.........................Post Cart Data in DataBase...............//
-
+//
 export const postData = (token, product, toast) => async (dispatch) => {
     const myToken = jwt_decode(token)
     const user = myToken.id
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.post("https://netmed-production.up.railway.app/cart", {
+        let response = await axios.post(cartPostFunc, {
             "product_id": product._id,
             "title": product.title,
             "img1": product.img1,
@@ -48,7 +50,7 @@ export const getCartData = (token) => async (dispatch) => {
 
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.get('https://netmed-production.up.railway.app/cart', {
+        let response = await axios.get(cartPostFunc, {
             headers: {
                 "x-authorization": `Bearer ${user}`
             }
@@ -70,14 +72,15 @@ export const getCartData = (token) => async (dispatch) => {
 
 
 //.........................Update Cart Data in Database.............................//
-
+//oldURL = https://netmed-production.up.railway.app/cart/${id}
+//"https://met-ned-back.onrender.com/cart"
 export const updateCartData = (token, id, quantity, toast, getTotalValue) => async (dispatch) => {
     const myToken = jwt_decode(token)
     const user = myToken
     console.log(user, quantity)
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.put(`https://netmed-production.up.railway.app/cart/${id}`, {
+        let response = await axios.put(`https://met-ned-back.onrender.com/cart/${id}`, {
             "quantity": quantity
         }, {
             headers: {
@@ -108,13 +111,14 @@ export const updateCartData = (token, id, quantity, toast, getTotalValue) => asy
 
 
 //.....................Delete Cart Data...............//
-
+// oldURL = 
+//"https://met-ned-back.onrender.com/cart"
 export const deleteCartData = (token, id, toast) => async (dispatch) => {
     const myToken = jwt_decode(token)
     const user = myToken
     dispatch({ type: CART_PRODUCT_LOADING })
     try {
-        let response = await axios.delete(`https://netmed-production.up.railway.app/cart/${id}`, {
+        let response = await axios.delete(`https://met-ned-back.onrender.com/cart/${id}`, {
             headers: {
                 "x-authorization": `Bearer ${user}`
             },

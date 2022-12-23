@@ -61,7 +61,9 @@ const Cart = () => {
     const getTotalValue = async (token) => {
         const myToken = jwt_decode(token)
         const user = myToken.id
-        await axios.get('https://netmed-production.up.railway.app/cart/total', {
+        //let authPostFunc = "https://met-ned-back.onrender.com/"
+        //https://netmed-production.up.railway.app/cart/total
+        await axios.get('https://met-ned-back.onrender.com/cart/total', {
             headers: {
                 "x-authorization": `Bearer ${user}`
             }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .mainbox{
     display: flex;
     justify-content: space-between;
@@ -31,14 +32,14 @@
     margin-top: 60px;
 }
 .cat2{
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     color: rgb(163, 160, 160);
     text-align: center;
 }
 .cat6{
     background-color:#dfd9d9 ;
-    margin-top: 24px;
+    margin-top: 12px;
 }
 .cat7{
     height: 100px;
@@ -50,7 +51,7 @@
     padding: 15px;
 }
 .sho2{
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 700;
     color: rgb(163, 160, 160);
@@ -78,12 +79,12 @@
     width: 110px;
     height: 30px;
     border-radius: 5px;
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
 }
 .soh1{
     margin-top: 5px;
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
 .mi3{
@@ -109,17 +110,17 @@
     cursor: pointer;
 }
 .cg2{
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     color: #6f7284;
 }
 .cg21{
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin-left: 5px;
 }
 .cg1{
-    font-family: LatoBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 22px; 
 }
 .cg5{
@@ -148,4 +149,7 @@
 .main123{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+}
+.productIMG{
+    height: 220px;
 }
