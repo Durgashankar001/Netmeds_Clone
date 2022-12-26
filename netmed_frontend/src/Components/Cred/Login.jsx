@@ -36,7 +36,9 @@ export default function Login() {
   //const [load,setLoad] = useState(false);
 
   const token = useSelector((store) => store.Auth.token);
+  const {loading} = useSelector(store=>store.Auth);
   // console.log(token.status);
+  console.log(loading);
   const dispatch = useDispatch();
 
   function handleChange(e) {
@@ -139,6 +141,7 @@ export default function Login() {
                         _hover={{
                           bg: "#24AEB1.500",
                         }}
+                        isLoading={loading}
                         onClick={handlesubmit}
                       >
                         Login
