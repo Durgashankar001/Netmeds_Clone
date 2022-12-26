@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   InputGroup,
   InputRightElement,
-  Spinner,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 
@@ -116,11 +115,7 @@ export default function SignUp() {
                   </Text>
                 </Stack>
                 <Box rounded={"lg"}>
-                  {load &&
-                    <Box display="flex" justifyContent="space-around" mt="1rem" mb="1rem">
-                      <Spinner thickness="4px" size="xl" align="center" />
-                    </Box>
-                  }
+                  
                   <Box spacing={4}>
                     <FormControl>
                       <FormLabel mb={4} ml={0} fontSize={"md"}>
@@ -182,6 +177,8 @@ export default function SignUp() {
                         _hover={{
                           bg: "#24AEB1.500",
                         }}
+                        isLoading={load}
+                        loadingText='Submitting'
                         onClick={handlesubmit}
                       >
                         Signup
