@@ -71,7 +71,7 @@ export default function SingleProductPage() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [id]);
   
   return (
     <div>

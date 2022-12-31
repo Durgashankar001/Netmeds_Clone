@@ -5,16 +5,46 @@ import { CgProfile } from "react-icons/cg";
 import AccountOption from "./AccountOption";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images-HP/metneds.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useRef } from "react";
+import SearchRes from "./SearchRes/SearchRes";
+
+//let url = "http://localhost:9898/products/search"
+let searchURL = "https://met-ned-back.onrender.com/products/search"
 export default function Navbar() {
   const nav = useNavigate();
-  const dispatch = useDispatch();
+  const [search,setSearch] = useState([]);
+  const [visi,setVisi] = useState(false);
+  const ref = useRef();
   const name = useSelector((store) => store.Auth.name);
-  console.log();
+  
+  const debFunc = (time,q)=>{
+    if(q=="") return;
+    if(ref.current) clearTimeout(ref.current);
+    ref.current = setTimeout(async()=>{
+      let config ={
+        method:"GET",
+        headers:{
+          "Content-Type":"application/json",
+        }
+      }
+
+      await fetch(searchURL+"?q="+q,config)
+      .then(res=>res.json())
+      .then(res=>{
+        console.log(res)
+        setSearch(res.data);
+        setVisi(true);
+      })
+      .catch((e)=>console.log(e));
+    },time)
+  }
 
   const { data } = useSelector((store) => store.cart);
   return (
     <>
+      {visi && <SearchRes arr={search} hideSearch={()=>setVisi(false)}/>}
       <Box className={styles.main}>
         <Box onClick={() => nav("/")} className={styles.imgBox}>
           {/* <Link to="/"> */}
@@ -44,6 +74,7 @@ export default function Navbar() {
               variant={"unstyled"}
               placeholder="Search for medicine and wellness products.."
               size={"xs"}
+              onInput={(e)=>debFunc(600,e.target.value)}
             />
           </Box>
         </Box>

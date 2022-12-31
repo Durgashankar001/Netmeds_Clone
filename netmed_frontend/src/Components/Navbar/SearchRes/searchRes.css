@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.searchDiv{
+    position: fixed;
+    z-index: 4;
+    left: 30%;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background-color: white;
+    padding: 0.8rem;
+    top:12%;
+    overflow-y: scroll;
+    height: 350px;
+    width: 430px;
+}
+
+.closeTab{
+    text-align: center;
+    font-weight: 650;
+    color: grey;
+    margin-bottom: 10px;
+    padding: 4px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.closeTab:hover{
+    color: white;
+    background-color: #32AEB1;
+    cursor: pointer;
+}
+.debItem{
+    border-bottom: 1px solid lightgray;
+    transition: all 0.2s ease-in-out;
+    padding: 4px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.debItem:hover{
+    font-weight: 600;
+    color: white;
+    background-color: #32AEB1;
+    cursor: pointer;
+}
+.limitLine{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.searchImg{
+    width: 100px;
+    height: 100px;
+}
+.proTitle{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.manufact{
+    font-size: 0.8rem;
+    font-weight: 450;
+}
+
+@media screen and (min-width:750px) and (max-width:1120px){
+    .searchDiv{
+        width: 330px;
+        height: 350px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:750px){
+    .searchDiv{
+        width: 230px;
+        height: 350px;
+    }
+}
+
+@media screen and (min-width:100px) and (max-width:500px){
+    .searchDiv{
+        width: 150px;
+        height: 250px;
+    }
+}
